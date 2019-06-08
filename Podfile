@@ -11,5 +11,5 @@ target 'RTFM' do
   pod 'PromisesSwift', '~> 1.2.7'
   pod 'KeychainAccess'
   pod 'CocoaLumberjack/Swift'
-
+  pod 'EFQRCode', '~> 5.0.0'
 end

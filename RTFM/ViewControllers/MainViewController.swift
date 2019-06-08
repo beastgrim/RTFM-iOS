@@ -173,27 +173,15 @@ class MainViewController: UIViewController {
         let scanner = QRScannerViewController.newScanner()
         scanner.delegate = self
         self.present(scanner, animated: true, completion: nil)
-        
-        Alamofire.request("http://192.168.47.69:8080/api/recent_payments/").responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            
-            if let json = response.result.value {
-                print("JSON: \(json)") // serialized json response
-            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
-        }
     }
     
     public func actionGenerateQRCodeForPay() {
         guard let transportId = self.transportId else {
             return
         }
-        print("QR code: \(transportId)")
+        let presentor = QRPresentorViewController.newPresentor()
+        presentor.code = transportId
+        self.present(presentor, animated: true, completion: nil)
     }
     
     @objc public func actionLogout(_ sender: Any?) {
