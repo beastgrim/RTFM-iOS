@@ -382,7 +382,7 @@ class ApiRequest<T: ApiResponseModel>: NSObject, ApiRequestProtocol {
         }
         
         Queue.main.run {
-            DDLogInfo("[API#\(self.attemptsDebugString)] success response for request: \(self.urlString)")
+            DDLogInfo("[API#\(self.attemptsDebugString)] success response for request: \(self.urlString), bytes: \(response)")
             self.successHandler(responseModel)
         }
     }

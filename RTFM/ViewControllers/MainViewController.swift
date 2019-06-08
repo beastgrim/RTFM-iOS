@@ -155,6 +155,12 @@ class MainViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+    }
+    
     deinit {
         if let observer = self.observer {
             NotificationCenter.default.removeObserver(observer)
@@ -210,7 +216,13 @@ class MainViewController: UIViewController {
         }
     }
     
-    public func actionShowHistory() {
+    @IBAction @objc public func actionShowHistory(_ sender: Any?) {
+        let transactions = TransactionsViewController.newTransactions()
+        transactions.title = "История транзакций"
+        self.navigationController?.pushViewController(transactions, animated: true)
+    }
+    
+    @IBAction @objc public func actiona(_ sender: Any?) {
         let transactions = TransactionsViewController.newTransactions()
         transactions.title = "История транзакций"
         self.navigationController?.pushViewController(transactions, animated: true)
@@ -226,7 +238,7 @@ class MainViewController: UIViewController {
     
     // MARK: - Private
     private var observer: AnyObject?
-    private var transactionsViewController: TransactionsViewController!
+    private weak var transactionsViewController: TransactionsViewController!
     private var transportId: String?
 }
 

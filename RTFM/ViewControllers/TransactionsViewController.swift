@@ -9,6 +9,19 @@
 import UIKit
 import CoreData
 
+class TransactionHeader: UITableViewHeaderFooterView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        self.textLabel?.font = UIFont(name: "Sarabun-Medium", size: 12)!
+        self.textLabel?.textColor = UIColor(red: 0.46, green: 0.5, blue: 0.55, alpha: 1)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        self.contentView.frame = self.bounds.insetBy(dx: 8, dy: 0)
+    }
+}
+
 class TransactionCell: UITableViewCell {
     static let id = "TransactionCell"
     
@@ -54,9 +67,8 @@ class TransactionCell: UITableViewCell {
 
 class TransactionsViewController: UITableViewController {
     
-    class func newTransactions() -> QRScannerViewController {
-        let vc: QRScannerViewController = UIStoryboard.viewController()
-        return vc
+    class func newTransactions() -> TransactionsViewController {
+        return UIStoryboard.viewController()
     }
     
     let transactionManager: TransactionsManager = .shared
@@ -64,11 +76,21 @@ class TransactionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        self.navigationItem.larg
         self.tableView.separatorStyle = .none
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.parent == self.navigationController {
+            self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        self.tableView.register(TransactionHeader.self, forHeaderFooterViewReuseIdentifier: "header")
         self.reloadData()
         
         self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidChangeRecent, object: nil, queue: .main, using: { (note) in
@@ -87,13 +109,23 @@ class TransactionsViewController: UITableViewController {
     
     // MARK: - Private
     private var days: [DayPayments] = []
-    private var dateFormatter: DateFormatter = {
+    private var cellDateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .medium
-        df.timeStyle = .medium
+        df.timeStyle = .none
+        return df
+    }()
+    private var headerDateFormatter: DateFormatter = {
+        let df = DateFormatter()
+        df.dateStyle = .short
+        df.timeStyle = .none
         return df
     }()
     private var observer: AnyObject?
+    private var todayTimeStamp: TimeInterval = {
+        let date = Calendar.current.startOfDay(for: Date())
+        return date.timeIntervalSince1970
+    }()
     
     private func actionUpdateData() {
         self.transactionManager.actionUpdateRecentTransactions()
@@ -101,6 +133,14 @@ class TransactionsViewController: UITableViewController {
     
     private func reloadData() {
         self.days = DayPayments.parsePayments(self.transactionManager.recentTransactions)
+        
+        // Debug
+        var pay = CompletedPayment()
+        pay.price = "40"
+        pay.title = "Bus 386"
+        self.days = [DayPayments(date: Date(), payments: [pay])]
+        
+        self.tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -112,6 +152,21 @@ class TransactionsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return self.days[section].payments.count
     }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        let date = self.days[section].date
+        let interval = date.timeIntervalSince1970
+        if interval == self.todayTimeStamp {
+            return "Сегодня"
+        } 
+        return self.headerDateFormatter.string(from: date)
+    }
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = tableView.dequeueReusableHeaderFooterView(withIdentifier: "header") as! TransactionHeader
+        header.textLabel?.text = self.tableView(tableView, titleForHeaderInSection: section)
+        return header
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let payment: CompletedPayment = self.days[indexPath.section].payments[indexPath.row]
@@ -120,7 +175,7 @@ class TransactionsViewController: UITableViewController {
         let date = Date(timeIntervalSince1970: TimeInterval(payment.date))
         cell.titleLabel.text = payment.title
         cell.amountLabel.text = payment.price
-        cell.descLabel.text = self.dateFormatter.string(from: date)
+        cell.descLabel.text = self.cellDateFormatter.string(from: date)
         var icon: UIImage!
         
         switch payment.type {
@@ -132,8 +187,8 @@ class TransactionsViewController: UITableViewController {
             icon = UIImage(named: "taxi")!
         case .subway:
             icon = UIImage(named: "metro")!
-
-        @unknown default: break
+            
+        case .UNRECOGNIZED(_): break
         }
         cell.iconView.image = icon
         return cell

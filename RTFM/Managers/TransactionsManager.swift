@@ -29,6 +29,7 @@ class TransactionsManager {
     static let shared: TransactionsManager = .init()
     let host = ApiHostManager.baseUrl.absoluteString
 
+    private(set) var clientId: Int64 = 1
     private(set) var state: State = .none
     private(set) var recentTransactions: [CompletedPayment] = []
     private(set) var userInfo: UserInfoResponse?
@@ -48,9 +49,9 @@ class TransactionsManager {
             return
         }
 
-        self.recentTransactionsRequest = Api.recentTransactions(host: self.host, clientId: 0, successHandler: { (response) in
+        self.recentTransactionsRequest = Api.recentTransactions(host: self.host, clientId: self.clientId, successHandler: { (response) in
             
-            print("Response: \(response)")
+            print("Payments: \(response.protobufObject.payments)")
             self.recentTransactions = response.protobufObject.payments
             self.recentTransactionsRequest = nil
             NotificationCenter.default.post(name: .transactionManagerDidChangeRecent, object: self)
@@ -67,7 +68,7 @@ class TransactionsManager {
             return
         }
         
-        self.userInfoRequest = Api.userInfo(host: self.host, clientId: 0, successHandler: { (response) in
+        self.userInfoRequest = Api.userInfo(host: self.host, clientId: self.clientId, successHandler: { (response) in
             
             print("Response: \(response)")
             let userInfo = response.protobufObject
