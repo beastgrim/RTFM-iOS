@@ -14,11 +14,12 @@ class Api {
         // TODO:
     }
     
-    class func recentTransactions<T: ApiProtobufResponseModel<ApiSuccessEmptyResponse>>(host: String, clientId: Int64, successHandler: @escaping ((T) -> Void), failureHandler: @escaping ((ApiRequestError) -> Void)) -> ApiRequest<T> {
+    class func recentTransactions<T: ApiProtobufResponseModel<RecentPaymentsResponce>>(host: String, clientId: Int64, successHandler: @escaping ((T) -> Void), failureHandler: @escaping ((ApiRequestError) -> Void)) -> ApiRequest<T> {
         
-        var payload = Transaction()
-        // TODO: 
-        let request = ApiRequest(protobufToHost: host, path: "api/recent_transactions",
+        var payload = RecentPaymentsRequest()
+        payload.clientID = clientId
+
+        let request = ApiRequest(protobufToHost: host, path: "api/recent_payments",
                                  uniqueType: "recent_transactions",
                                  protobufRequest: payload, successHandler: successHandler,
                                  failureHandler: { (error) in

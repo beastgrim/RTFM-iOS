@@ -19,6 +19,94 @@ fileprivate struct _GeneratedWithProtocGenSwiftVersion: SwiftProtobuf.ProtobufAP
   typealias Version = _2
 }
 
+enum TransportType: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+  case bus // = 0
+  case mt // = 1
+  case taxy // = 2
+  case subway // = 3
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .bus
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .bus
+    case 1: self = .mt
+    case 2: self = .taxy
+    case 3: self = .subway
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .bus: return 0
+    case .mt: return 1
+    case .taxy: return 2
+    case .subway: return 3
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension TransportType: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [TransportType] = [
+    .bus,
+    .mt,
+    .taxy,
+    .subway,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
+enum Status: SwiftProtobuf.Enum {
+  typealias RawValue = Int
+  case success // = 0
+  case failed // = 1
+  case UNRECOGNIZED(Int)
+
+  init() {
+    self = .success
+  }
+
+  init?(rawValue: Int) {
+    switch rawValue {
+    case 0: self = .success
+    case 1: self = .failed
+    default: self = .UNRECOGNIZED(rawValue)
+    }
+  }
+
+  var rawValue: Int {
+    switch self {
+    case .success: return 0
+    case .failed: return 1
+    case .UNRECOGNIZED(let i): return i
+    }
+  }
+
+}
+
+#if swift(>=4.2)
+
+extension Status: CaseIterable {
+  // The compiler won't synthesize support with the UNRECOGNIZED case.
+  static var allCases: [Status] = [
+    .success,
+    .failed,
+  ]
+}
+
+#endif  // swift(>=4.2)
+
 struct Passenger {
   // SwiftProtobuf.Message conformance is added in an extension below. See the
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
@@ -46,6 +134,8 @@ struct Transport {
 
   var trID: Int64 = 0
 
+  var trType: String = String()
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -59,6 +149,8 @@ struct Trace {
   var cost: Double = 0
 
   var traceID: Int64 = 0
+
+  var traceTitle: String = String()
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -90,6 +182,10 @@ struct Transaction {
 
   var time: UInt32 = 0
 
+  var transactionID: Int64 = 0
+
+  var status: Status = .success
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -120,6 +216,22 @@ struct DriveSession {
 }
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
+
+extension TransportType: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Bus"),
+    1: .same(proto: "MT"),
+    2: .same(proto: "Taxy"),
+    3: .same(proto: "Subway"),
+  ]
+}
+
+extension Status: SwiftProtobuf._ProtoNameProviding {
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    0: .same(proto: "Success"),
+    1: .same(proto: "Failed"),
+  ]
+}
 
 extension Passenger: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
   static let protoMessageName: String = "Passenger"
@@ -178,12 +290,14 @@ extension Transport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
   static let protoMessageName: String = "Transport"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .standard(proto: "tr_id"),
+    2: .standard(proto: "tr_type"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularInt64Field(value: &self.trID)
+      case 2: try decoder.decodeSingularStringField(value: &self.trType)
       default: break
       }
     }
@@ -193,11 +307,15 @@ extension Transport: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementation
     if self.trID != 0 {
       try visitor.visitSingularInt64Field(value: self.trID, fieldNumber: 1)
     }
+    if !self.trType.isEmpty {
+      try visitor.visitSingularStringField(value: self.trType, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Transport, rhs: Transport) -> Bool {
     if lhs.trID != rhs.trID {return false}
+    if lhs.trType != rhs.trType {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -208,6 +326,7 @@ extension Trace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "cost"),
     2: .standard(proto: "trace_id"),
+    3: .standard(proto: "trace_title"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -215,6 +334,7 @@ extension Trace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
       switch fieldNumber {
       case 1: try decoder.decodeSingularDoubleField(value: &self.cost)
       case 2: try decoder.decodeSingularInt64Field(value: &self.traceID)
+      case 3: try decoder.decodeSingularStringField(value: &self.traceTitle)
       default: break
       }
     }
@@ -227,12 +347,16 @@ extension Trace: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase
     if self.traceID != 0 {
       try visitor.visitSingularInt64Field(value: self.traceID, fieldNumber: 2)
     }
+    if !self.traceTitle.isEmpty {
+      try visitor.visitSingularStringField(value: self.traceTitle, fieldNumber: 3)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: Trace, rhs: Trace) -> Bool {
     if lhs.cost != rhs.cost {return false}
     if lhs.traceID != rhs.traceID {return false}
+    if lhs.traceTitle != rhs.traceTitle {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -274,6 +398,8 @@ extension Transaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     2: .standard(proto: "session_id"),
     3: .same(proto: "value"),
     4: .same(proto: "time"),
+    5: .standard(proto: "transaction_id"),
+    6: .same(proto: "status"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -283,6 +409,8 @@ extension Transaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
       case 2: try decoder.decodeSingularInt64Field(value: &self.sessionID)
       case 3: try decoder.decodeSingularDoubleField(value: &self.value)
       case 4: try decoder.decodeSingularUInt32Field(value: &self.time)
+      case 5: try decoder.decodeSingularInt64Field(value: &self.transactionID)
+      case 6: try decoder.decodeSingularEnumField(value: &self.status)
       default: break
       }
     }
@@ -301,6 +429,12 @@ extension Transaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     if self.time != 0 {
       try visitor.visitSingularUInt32Field(value: self.time, fieldNumber: 4)
     }
+    if self.transactionID != 0 {
+      try visitor.visitSingularInt64Field(value: self.transactionID, fieldNumber: 5)
+    }
+    if self.status != .success {
+      try visitor.visitSingularEnumField(value: self.status, fieldNumber: 6)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
@@ -309,6 +443,8 @@ extension Transaction: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementati
     if lhs.sessionID != rhs.sessionID {return false}
     if lhs.value != rhs.value {return false}
     if lhs.time != rhs.time {return false}
+    if lhs.transactionID != rhs.transactionID {return false}
+    if lhs.status != rhs.status {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }

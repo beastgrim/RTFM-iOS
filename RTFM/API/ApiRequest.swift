@@ -246,7 +246,7 @@ class ApiRequest<T: ApiResponseModel>: NSObject, ApiRequestProtocol {
                 self.state = .sending
                 requestDataTask.resume()
                 
-                DDLogInfo("[API#\(self.attemptsDebugString)] send request: \(self.urlString)")
+                DDLogInfo("[API#\(self.attemptsDebugString)] send request: [\(requestDataTask.request?.httpMethod ?? "")] \(self.urlString)")
             } else {
                 self.state = .waiting
                 DDLogInfo("[API#\(self.attemptsDebugString)] wait for internet request: \(self.urlString)")
