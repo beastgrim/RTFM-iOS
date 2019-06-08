@@ -53,7 +53,12 @@ class TransactionCell: UITableViewCell {
 }
 
 class TransactionsViewController: UITableViewController {
-
+    
+    class func newTransactions() -> QRScannerViewController {
+        let vc: QRScannerViewController = UIStoryboard.viewController()
+        return vc
+    }
+    
     let transactionManager: TransactionsManager = .shared
 
     override func viewDidLoad() {
@@ -75,7 +80,9 @@ class TransactionsViewController: UITableViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        NotificationCenter.default.removeObserver(self.observer)
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     // MARK: - Private
@@ -114,6 +121,21 @@ class TransactionsViewController: UITableViewController {
         cell.titleLabel.text = payment.title
         cell.amountLabel.text = payment.price
         cell.descLabel.text = self.dateFormatter.string(from: date)
+        var icon: UIImage!
+        
+        switch payment.type {
+        case .bus:
+            icon = UIImage(named: "bus")!
+        case .mt:
+            icon = UIImage(named: "taxi")!
+        case .taxy:
+            icon = UIImage(named: "taxi")!
+        case .subway:
+            icon = UIImage(named: "metro")!
+
+        @unknown default: break
+        }
+        cell.iconView.image = icon
         return cell
     }
 }

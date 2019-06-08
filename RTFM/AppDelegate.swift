@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import CocoaLumberjack
+import Alamofire
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         DDLog.add(DDOSLogger.sharedInstance)
         let _ = QRScannerViewController.session
-
+    
         return true
     }
 

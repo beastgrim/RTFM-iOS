@@ -49,21 +49,27 @@
                                             </button>
                                         </subviews>
                                     </stackView>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Lkh-j1-rrM">
+                                        <rect key="frame" x="188.5" y="115.5" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="HiM-Sw-EaF" firstAttribute="leading" secondItem="EoK-6F-xp4" secondAttribute="leading" id="15b-FR-ewc"/>
                                     <constraint firstAttribute="bottom" secondItem="HiM-Sw-EaF" secondAttribute="bottom" id="Esf-QX-q52"/>
                                     <constraint firstAttribute="trailing" secondItem="HiM-Sw-EaF" secondAttribute="trailing" id="JnD-3V-Vsl"/>
+                                    <constraint firstItem="Lkh-j1-rrM" firstAttribute="top" secondItem="oae-VR-gTw" secondAttribute="bottom" id="TpB-Bk-d8d"/>
                                     <constraint firstItem="t8b-ZJ-bEY" firstAttribute="top" secondItem="EoK-6F-xp4" secondAttribute="top" constant="32" id="ZW1-Zl-xdo"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="oae-VR-gTw" secondAttribute="trailing" constant="20" symbolic="YES" id="avt-p5-0qA"/>
                                     <constraint firstItem="oae-VR-gTw" firstAttribute="top" secondItem="t8b-ZJ-bEY" secondAttribute="bottom" constant="16" id="dgW-Dq-KCC"/>
+                                    <constraint firstItem="Lkh-j1-rrM" firstAttribute="centerX" secondItem="EoK-6F-xp4" secondAttribute="centerX" id="iTE-hL-z30"/>
                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="t8b-ZJ-bEY" secondAttribute="trailing" constant="20" symbolic="YES" id="j8y-un-O6f"/>
                                     <constraint firstItem="oae-VR-gTw" firstAttribute="leading" secondItem="EoK-6F-xp4" secondAttribute="leading" constant="32" id="mUM-Dx-Gtv"/>
                                     <constraint firstAttribute="width" secondItem="EoK-6F-xp4" secondAttribute="height" multiplier="5:3" id="n0V-FH-eCe"/>
                                     <constraint firstItem="t8b-ZJ-bEY" firstAttribute="leading" secondItem="EoK-6F-xp4" secondAttribute="leading" constant="32" id="xkI-Ir-0qY"/>
                                 </constraints>
                                 <connections>
+                                    <outlet property="activity" destination="Lkh-j1-rrM" id="mpQ-6N-k9C"/>
                                     <outlet property="addButton" destination="dfQ-Zw-qrv" id="Tg8-uu-QUg"/>
                                     <outlet property="historyButton" destination="BR8-Z3-Sh2" id="wPz-EX-FC7"/>
                                     <outlet property="moneyLabel" destination="oae-VR-gTw" id="imj-xr-Qfz"/>

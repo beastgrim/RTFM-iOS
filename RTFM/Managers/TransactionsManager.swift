@@ -20,6 +20,8 @@ extension TransactionsManager {
 
 extension Notification.Name {
     static let transactionManagerDidChangeRecent = Notification.Name.init(rawValue: "TransactionManagerDidChangeRecent")
+    static let transactionManagerDidUserInfo = Notification.Name.init(rawValue: "transactionManagerDidUserInfo")
+
 }
 
 class TransactionsManager {
@@ -29,6 +31,7 @@ class TransactionsManager {
 
     private(set) var state: State = .none
     private(set) var recentTransactions: [CompletedPayment] = []
+    private(set) var userInfo: UserInfoResponse?
     
     private init() {
         self.start()
@@ -50,6 +53,7 @@ class TransactionsManager {
             print("Response: \(response)")
             self.recentTransactions = response.protobufObject.payments
             self.recentTransactionsRequest = nil
+            NotificationCenter.default.post(name: .transactionManagerDidChangeRecent, object: self)
         }) { (error) in
             print("Error: \(error)")
             self.recentTransactionsRequest = nil
@@ -57,4 +61,24 @@ class TransactionsManager {
         self.recentTransactionsRequest?.start()
     }
     
+    private var userInfoRequest: ApiRequest<ApiProtobufResponseModel<UserInfoResponse>>?
+    public func actionUpdateUserInfo() {
+        guard self.userInfoRequest == nil else {
+            return
+        }
+        
+        self.userInfoRequest = Api.userInfo(host: self.host, clientId: 0, successHandler: { (response) in
+            
+            print("Response: \(response)")
+            let userInfo = response.protobufObject
+            self.userInfoRequest = nil
+            if self.userInfo != userInfo {
+                self.userInfo = userInfo
+                NotificationCenter.default.post(name: .transactionManagerDidUserInfo, object: self)
+            }
+        }, failureHandler: { (error) in
+            print("Error: \(error)")
+            self.userInfoRequest = nil
+        })
+    }
 }

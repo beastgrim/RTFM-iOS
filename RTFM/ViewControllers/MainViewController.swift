@@ -81,6 +81,7 @@ class HeaderButton: UIButton {
 }
 
 class HeaderView: UIView {
+    @IBOutlet var activity: UIActivityIndicatorView!
     @IBOutlet var titleLabel: UILabel! {
         didSet {
             let paragraphStyle = NSMutableParagraphStyle()
@@ -145,6 +146,19 @@ class MainViewController: UIViewController {
         let logout = UIBarButtonItem(image: UIImage(named: "logout"), style: .plain, target: self, action: #selector(actionLogout(_:)))
         logout.tintColor = .white
         self.navigationItem.rightBarButtonItem = logout
+        
+        self.actionReloadUserInfo()
+        
+        self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidUserInfo, object: nil, queue: .main) { (_) in
+            
+            self.actionReloadUserInfo()
+        }
+    }
+    
+    deinit {
+        if let observer = self.observer {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     // MARK: - Public
@@ -153,6 +167,20 @@ class MainViewController: UIViewController {
         let scanner = QRScannerViewController.newScanner()
         scanner.delegate = self
         self.present(scanner, animated: true, completion: nil)
+        
+        Alamofire.request("http://192.168.47.69:8080/api/recent_payments/").responseJSON { response in
+            print("Request: \(String(describing: response.request))")   // original url request
+            print("Response: \(String(describing: response.response))") // http url response
+            print("Result: \(response.result)")                         // response serialization result
+            
+            if let json = response.result.value {
+                print("JSON: \(json)") // serialized json response
+            }
+            
+            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
+                print("Data: \(utf8Text)") // original server data as UTF8 string
+            }
+        }
     }
     
     public func actionGenerateQRCodeForPay() {
@@ -166,6 +194,30 @@ class MainViewController: UIViewController {
         // TODO: Show login page
     }
     
+    public func actionUpdateUserInfo() {
+        self.transactionManager.actionUpdateRecentTransactions()
+    }
+    
+    public func actionReloadUserInfo() {
+        if let balance = self.transactionManager.userInfo?.balance {
+            self.headerView.moneyLabel.text = balance
+            self.headerView.activity.stopAnimating()
+            self.headerView.titleLabel.text = "Текущий баланс"
+        } else {
+            self.headerView.activity.startAnimating()
+            self.headerView.moneyLabel.text = ""
+            self.headerView.titleLabel.text = ""
+        }
+    }
+    
+    public func actionShowHistory() {
+        let transactions = TransactionsViewController.newTransactions()
+        transactions.title = "История транзакций"
+        self.navigationController?.pushViewController(transactions, animated: true)
+    }
+    
+    // MARK: - Segue
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let transaction = segue.destination as? TransactionsViewController {
             self.transactionsViewController = transaction
@@ -173,7 +225,7 @@ class MainViewController: UIViewController {
     }
     
     // MARK: - Private
-    
+    private var observer: AnyObject?
     private var transactionsViewController: TransactionsViewController!
     private var transportId: String?
 }
