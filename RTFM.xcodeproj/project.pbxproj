@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ED823E9A24C716618B725E6 /* Pods_RTFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */; };
 		846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DD22AB88FA00970EAB /* AppDelegate.swift */; };
 		846869E022AB88FA00970EAB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DF22AB88FA00970EAB /* ViewController.swift */; };
 		846869E322AB88FA00970EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846869E122AB88FA00970EAB /* Main.storyboard */; };
 		846869E622AB88FA00970EAB /* RTFM.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 846869E422AB88FA00970EAB /* RTFM.xcdatamodeld */; };
 		846869E822AB88FB00970EAB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 846869E722AB88FB00970EAB /* Assets.xcassets */; };
 		846869EB22AB88FB00970EAB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846869E922AB88FB00970EAB /* LaunchScreen.storyboard */; };
+		84EF5F7422AB8EE9001005AA /* ApiRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7322AB8EE9001005AA /* ApiRequest.swift */; };
+		84EF5F7622AB8F0F001005AA /* BaseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7522AB8F0F001005AA /* BaseError.swift */; };
+		84EF5F7822AB8F4C001005AA /* ApiResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7722AB8F4C001005AA /* ApiResponseModel.swift */; };
+		84EF5F7A22AB918F001005AA /* ApiHostManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7922AB918F001005AA /* ApiHostManager.swift */; };
+		84EF5F7C22AB92F0001005AA /* Queue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7B22AB92F0001005AA /* Queue.swift */; };
+		84EF5F7F22AB950F001005AA /* LocalizationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F7E22AB950F001005AA /* LocalizationManager.swift */; };
+		84EF5F8122AB95A6001005AA /* UIDeviceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8022AB95A6001005AA /* UIDeviceExtensions.swift */; };
+		84EF5F8422AB963D001005AA /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8322AB963D001005AA /* AuthManager.swift */; };
+		84EF5F8622AB9754001005AA /* ApiRequestEncoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8522AB9754001005AA /* ApiRequestEncoding.swift */; };
+		84EF5F8822AB9891001005AA /* ApiRequestsQueueManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8722AB9891001005AA /* ApiRequestsQueueManager.swift */; };
+		84EF5F8A22AB98CA001005AA /* InternetConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8922AB98CA001005AA /* InternetConnectionManager.swift */; };
+		84EF5F8F22AB992D001005AA /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F8D22AB992D001005AA /* Reachability.m */; };
+		84EF5F9122ABAC88001005AA /* ApiRequestDecoding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F9022ABAC88001005AA /* ApiRequestDecoding.swift */; };
+		84EF5F9322ABBA7F001005AA /* DataExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5F9222ABBA7F001005AA /* DataExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +39,25 @@
 		846869E722AB88FB00970EAB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		846869EA22AB88FB00970EAB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		846869EC22AB88FB00970EAB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		84EF5F7322AB8EE9001005AA /* ApiRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequest.swift; sourceTree = "<group>"; };
+		84EF5F7522AB8F0F001005AA /* BaseError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseError.swift; sourceTree = "<group>"; };
+		84EF5F7722AB8F4C001005AA /* ApiResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponseModel.swift; sourceTree = "<group>"; };
+		84EF5F7922AB918F001005AA /* ApiHostManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiHostManager.swift; sourceTree = "<group>"; };
+		84EF5F7B22AB92F0001005AA /* Queue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Queue.swift; sourceTree = "<group>"; };
+		84EF5F7E22AB950F001005AA /* LocalizationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationManager.swift; sourceTree = "<group>"; };
+		84EF5F8022AB95A6001005AA /* UIDeviceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDeviceExtensions.swift; sourceTree = "<group>"; };
+		84EF5F8322AB963D001005AA /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		84EF5F8522AB9754001005AA /* ApiRequestEncoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestEncoding.swift; sourceTree = "<group>"; };
+		84EF5F8722AB9891001005AA /* ApiRequestsQueueManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestsQueueManager.swift; sourceTree = "<group>"; };
+		84EF5F8922AB98CA001005AA /* InternetConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternetConnectionManager.swift; sourceTree = "<group>"; };
+		84EF5F8C22AB992C001005AA /* RTFM-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "RTFM-Bridging-Header.h"; sourceTree = "<group>"; };
+		84EF5F8D22AB992D001005AA /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		84EF5F8E22AB992D001005AA /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		84EF5F9022ABAC88001005AA /* ApiRequestDecoding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRequestDecoding.swift; sourceTree = "<group>"; };
+		84EF5F9222ABBA7F001005AA /* DataExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataExtensions.swift; sourceTree = "<group>"; };
+		A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AB1FA68045B8B2E39652F83E /* Pods-RTFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.release.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.release.xcconfig"; sourceTree = "<group>"; };
+		E933BA80FA10CB64A3264672 /* Pods-RTFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.debug.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +65,28 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ED823E9A24C716618B725E6 /* Pods_RTFM.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39237175117B3C21979129B0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		846869D122AB88FA00970EAB = {
 			isa = PBXGroup;
 			children = (
 				846869DC22AB88FA00970EAB /* RTFM */,
 				846869DB22AB88FA00970EAB /* Products */,
+				8A11AEC9F4CD53CBA3B43DB9 /* Pods */,
+				39237175117B3C21979129B0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +101,88 @@
 		846869DC22AB88FA00970EAB /* RTFM */ = {
 			isa = PBXGroup;
 			children = (
+				84EF5F8B22AB991F001005AA /* Vendors */,
+				84EF5F8222AB95AA001005AA /* Extensions */,
+				84EF5F7D22AB9503001005AA /* Managers */,
+				84EF5F7222AB8EC5001005AA /* Base */,
+				84EF5F6E22AB8E89001005AA /* API */,
 				846869DD22AB88FA00970EAB /* AppDelegate.swift */,
 				846869DF22AB88FA00970EAB /* ViewController.swift */,
+				84EF5F6B22AB8DF4001005AA /* SupportedFiles */,
+			);
+			path = RTFM;
+			sourceTree = "<group>";
+		};
+		84EF5F6B22AB8DF4001005AA /* SupportedFiles */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F8C22AB992C001005AA /* RTFM-Bridging-Header.h */,
 				846869E122AB88FA00970EAB /* Main.storyboard */,
 				846869E722AB88FB00970EAB /* Assets.xcassets */,
 				846869E922AB88FB00970EAB /* LaunchScreen.storyboard */,
 				846869EC22AB88FB00970EAB /* Info.plist */,
 				846869E422AB88FA00970EAB /* RTFM.xcdatamodeld */,
 			);
-			path = RTFM;
+			name = SupportedFiles;
+			sourceTree = "<group>";
+		};
+		84EF5F6E22AB8E89001005AA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F7322AB8EE9001005AA /* ApiRequest.swift */,
+				84EF5F7722AB8F4C001005AA /* ApiResponseModel.swift */,
+				84EF5F7922AB918F001005AA /* ApiHostManager.swift */,
+				84EF5F8522AB9754001005AA /* ApiRequestEncoding.swift */,
+				84EF5F9022ABAC88001005AA /* ApiRequestDecoding.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		84EF5F7222AB8EC5001005AA /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F7522AB8F0F001005AA /* BaseError.swift */,
+				84EF5F7B22AB92F0001005AA /* Queue.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		84EF5F7D22AB9503001005AA /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F8322AB963D001005AA /* AuthManager.swift */,
+				84EF5F7E22AB950F001005AA /* LocalizationManager.swift */,
+				84EF5F8722AB9891001005AA /* ApiRequestsQueueManager.swift */,
+				84EF5F8922AB98CA001005AA /* InternetConnectionManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		84EF5F8222AB95AA001005AA /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F8022AB95A6001005AA /* UIDeviceExtensions.swift */,
+				84EF5F9222ABBA7F001005AA /* DataExtensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		84EF5F8B22AB991F001005AA /* Vendors */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5F8E22AB992D001005AA /* Reachability.h */,
+				84EF5F8D22AB992D001005AA /* Reachability.m */,
+			);
+			path = Vendors;
+			sourceTree = "<group>";
+		};
+		8A11AEC9F4CD53CBA3B43DB9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E933BA80FA10CB64A3264672 /* Pods-RTFM.debug.xcconfig */,
+				AB1FA68045B8B2E39652F83E /* Pods-RTFM.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +192,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846869EF22AB88FB00970EAB /* Build configuration list for PBXNativeTarget "RTFM" */;
 			buildPhases = (
+				F2E899A6816F8EA23E64213A /* [CP] Check Pods Manifest.lock */,
 				846869D622AB88FA00970EAB /* Sources */,
 				846869D722AB88FA00970EAB /* Frameworks */,
 				846869D822AB88FA00970EAB /* Resources */,
+				7CE9CD39C655EFBC87E4EC14 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -99,6 +219,7 @@
 				TargetAttributes = {
 					846869D922AB88FA00970EAB = {
 						CreatedOnToolsVersion = 10.2.1;
+						LastSwiftMigration = 1020;
 					};
 				};
 			};
@@ -133,14 +254,89 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		7CE9CD39C655EFBC87E4EC14 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RTFM/Pods-RTFM-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainAccess/KeychainAccess.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesSwift/Promises.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftProtobuf/SwiftProtobuf.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaLumberjack.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainAccess.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Promises.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftProtobuf.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RTFM/Pods-RTFM-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F2E899A6816F8EA23E64213A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RTFM-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		846869D622AB88FA00970EAB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF5F8A22AB98CA001005AA /* InternetConnectionManager.swift in Sources */,
 				846869E622AB88FA00970EAB /* RTFM.xcdatamodeld in Sources */,
+				84EF5F7F22AB950F001005AA /* LocalizationManager.swift in Sources */,
+				84EF5F9122ABAC88001005AA /* ApiRequestDecoding.swift in Sources */,
 				846869E022AB88FA00970EAB /* ViewController.swift in Sources */,
+				84EF5F8F22AB992D001005AA /* Reachability.m in Sources */,
+				84EF5F7A22AB918F001005AA /* ApiHostManager.swift in Sources */,
+				84EF5F7C22AB92F0001005AA /* Queue.swift in Sources */,
+				84EF5F7422AB8EE9001005AA /* ApiRequest.swift in Sources */,
 				846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */,
+				84EF5F9322ABBA7F001005AA /* DataExtensions.swift in Sources */,
+				84EF5F7622AB8F0F001005AA /* BaseError.swift in Sources */,
+				84EF5F8622AB9754001005AA /* ApiRequestEncoding.swift in Sources */,
+				84EF5F8422AB963D001005AA /* AuthManager.swift in Sources */,
+				84EF5F8822AB9891001005AA /* ApiRequestsQueueManager.swift in Sources */,
+				84EF5F7822AB8F4C001005AA /* ApiResponseModel.swift in Sources */,
+				84EF5F8122AB95A6001005AA /* UIDeviceExtensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,17 +480,22 @@
 		};
 		846869F022AB88FB00970EAB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E933BA80FA10CB64A3264672 /* Pods-RTFM.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N33586GXQE;
 				INFOPLIST_FILE = RTFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.givemeapp.be.RTFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RTFM/RTFM-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -302,17 +503,21 @@
 		};
 		846869F122AB88FB00970EAB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB1FA68045B8B2E39652F83E /* Pods-RTFM.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = N33586GXQE;
 				INFOPLIST_FILE = RTFM/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = info.givemeapp.be.RTFM;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "RTFM/RTFM-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
