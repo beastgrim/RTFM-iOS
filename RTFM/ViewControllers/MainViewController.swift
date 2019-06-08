@@ -222,7 +222,7 @@ class MainViewController: UIViewController {
         self.navigationController?.pushViewController(transactions, animated: true)
     }
     
-    @IBAction @objc public func actiona(_ sender: Any?) {
+    @IBAction @objc public func actionFillUpPurse(_ sender: Any?) {
         let transactions = TransactionsViewController.newTransactions()
         transactions.title = "История транзакций"
         self.navigationController?.pushViewController(transactions, animated: true)

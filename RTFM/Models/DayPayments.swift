@@ -32,7 +32,7 @@ struct DayPayments {
             let str = df.string(from: pDate)
             
             if str == currentDateString {
-                day.payments.append(p)
+                results[results.count-1].payments.append(p)
             } else {
                 day = DayPayments(date: pDate, payments: [p])
                 currentDateString = str

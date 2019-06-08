@@ -76,7 +76,6 @@ class TransactionsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.navigationItem.larg
         self.tableView.separatorStyle = .none
     }
     
@@ -134,11 +133,11 @@ class TransactionsViewController: UITableViewController {
     private func reloadData() {
         self.days = DayPayments.parsePayments(self.transactionManager.recentTransactions)
         
-        // Debug
+        /* Debug
         var pay = CompletedPayment()
         pay.price = "40"
         pay.title = "Bus 386"
-        self.days = [DayPayments(date: Date(), payments: [pay])]
+        self.days = [DayPayments(date: Date(), payments: [pay])] */
         
         self.tableView.reloadData()
     }
