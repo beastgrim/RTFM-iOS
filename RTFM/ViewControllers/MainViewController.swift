@@ -139,6 +139,10 @@ class MainViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let logout = UIBarButtonItem(image: UIImage(named: "logout"), style: .plain, target: self, action: #selector(actionLogout(_:)))
+        logout.tintColor = .white
+        self.navigationItem.rightBarButtonItem = logout
     }
     
     // MARK: - Public
@@ -154,6 +158,10 @@ class MainViewController: UIViewController {
             return
         }
         print("QR code: \(transportId)")
+    }
+    
+    @objc public func actionLogout(_ sender: Any?) {
+        // TODO: Show login page
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

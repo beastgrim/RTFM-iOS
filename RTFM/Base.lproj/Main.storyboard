@@ -242,7 +242,7 @@
                                     <action selector="actionClose:" destination="9A4-Ba-Zxj" eventType="touchUpInside" id="Yun-gU-MAJ"/>
                                 </connections>
                             </button>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xEH-zs-5jt">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="qr-space" translatesAutoresizingMaskIntoConstraints="NO" id="xEH-zs-5jt">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="17j-av-ZLp"/>
@@ -285,6 +285,7 @@
     </scenes>
     <resources>
         <image name="pay-bg" width="89" height="88"/>
+        <image name="qr-space" width="146" height="146"/>
         <image name="wall" width="375" height="281"/>
     </resources>
 </document>

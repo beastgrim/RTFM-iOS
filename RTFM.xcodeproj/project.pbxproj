@@ -37,6 +37,7 @@
 		84EF5FA722ABF15D001005AA /* Sarabun-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FA322ABF15D001005AA /* Sarabun-Regular.ttf */; };
 		84EF5FA922ABF1B4001005AA /* Sarabun-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FA422ABF15D001005AA /* Sarabun-Bold.ttf */; };
 		84EF5FAB22ABF5EC001005AA /* Sarabun-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FAA22ABF5EC001005AA /* Sarabun-SemiBold.ttf */; };
+		84EF5FAE22AC013B001005AA /* db_models.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FAD22AC013B001005AA /* db_models.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,6 +74,7 @@
 		84EF5FA322ABF15D001005AA /* Sarabun-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-Regular.ttf"; sourceTree = "<group>"; };
 		84EF5FA422ABF15D001005AA /* Sarabun-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-Bold.ttf"; sourceTree = "<group>"; };
 		84EF5FAA22ABF5EC001005AA /* Sarabun-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-SemiBold.ttf"; sourceTree = "<group>"; };
+		84EF5FAD22AC013B001005AA /* db_models.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = db_models.pb.swift; path = "rtfm-backend/rtfm/rtfm/models/proto_models/db_models.pb.swift"; sourceTree = SOURCE_ROOT; };
 		A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FA68045B8B2E39652F83E /* Pods-RTFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.release.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.release.xcconfig"; sourceTree = "<group>"; };
 		E933BA80FA10CB64A3264672 /* Pods-RTFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.debug.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 		84EF5F6E22AB8E89001005AA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				84EF5FAC22AC012E001005AA /* Protobuf */,
 				84EF5F7322AB8EE9001005AA /* ApiRequest.swift */,
 				84EF5F7722AB8F4C001005AA /* ApiResponseModel.swift */,
 				84EF5F7922AB918F001005AA /* ApiHostManager.swift */,
@@ -217,6 +220,14 @@
 				84EF5FA322ABF15D001005AA /* Sarabun-Regular.ttf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		84EF5FAC22AC012E001005AA /* Protobuf */ = {
+			isa = PBXGroup;
+			children = (
+				84EF5FAD22AC013B001005AA /* db_models.pb.swift */,
+			);
+			path = Protobuf;
 			sourceTree = "<group>";
 		};
 		8A11AEC9F4CD53CBA3B43DB9 /* Pods */ = {
@@ -380,6 +391,7 @@
 				84EF5F7C22AB92F0001005AA /* Queue.swift in Sources */,
 				84EF5F7422AB8EE9001005AA /* ApiRequest.swift in Sources */,
 				846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */,
+				84EF5FAE22AC013B001005AA /* db_models.pb.swift in Sources */,
 				84EF5F9322ABBA7F001005AA /* DataExtensions.swift in Sources */,
 				84EF5F7622AB8F0F001005AA /* BaseError.swift in Sources */,
 				84EF5F9F22ABDEB9001005AA /* TransactionsViewController.swift in Sources */,

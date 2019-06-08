@@ -13,6 +13,9 @@ class MainNavigationViewController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        self.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        self.navigationBar.barTintColor = .clear
         self.navigationBar.prefersLargeTitles = true
     }
 }
