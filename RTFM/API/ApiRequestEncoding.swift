@@ -79,7 +79,7 @@ class ApiRequestEncoding  {
                 let serializedData = try request.protobufRequest!.serializedData()
                 requestData = serializedData
                 
-                urlRequest.setValue("application/x-protobuf", forHTTPHeaderField: "Content-Type")
+                urlRequest.setValue("application/protobuf", forHTTPHeaderField: "Content-Type")
             } catch let error {
                 throw ApiRequestEncodingError(code: .protobufEncoding, underlying: error, systemMsg: nil)
             }

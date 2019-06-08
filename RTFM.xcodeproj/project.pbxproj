@@ -37,7 +37,12 @@
 		84EF5FA722ABF15D001005AA /* Sarabun-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FA322ABF15D001005AA /* Sarabun-Regular.ttf */; };
 		84EF5FA922ABF1B4001005AA /* Sarabun-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FA422ABF15D001005AA /* Sarabun-Bold.ttf */; };
 		84EF5FAB22ABF5EC001005AA /* Sarabun-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 84EF5FAA22ABF5EC001005AA /* Sarabun-SemiBold.ttf */; };
-		84EF5FAE22AC013B001005AA /* db_models.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FAD22AC013B001005AA /* db_models.pb.swift */; };
+		84EF5FB022AC0CE4001005AA /* TransactionsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FAF22AC0CE4001005AA /* TransactionsManager.swift */; };
+		84EF5FB222AC0E47001005AA /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FB122AC0E47001005AA /* Api.swift */; };
+		84EF5FB422AC0F54001005AA /* ApiProtobufResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FB322AC0F54001005AA /* ApiProtobufResponseModel.swift */; };
+		84EF5FB622AC0F81001005AA /* ApiSuccessEmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FB522AC0F81001005AA /* ApiSuccessEmptyResponse.swift */; };
+		84EF5FB822AC115B001005AA /* db_models.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FB722AC115B001005AA /* db_models.pb.swift */; };
+		84EF5FBA22AC16FF001005AA /* empty.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EF5FB922AC16FE001005AA /* empty.pb.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,7 +79,12 @@
 		84EF5FA322ABF15D001005AA /* Sarabun-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-Regular.ttf"; sourceTree = "<group>"; };
 		84EF5FA422ABF15D001005AA /* Sarabun-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-Bold.ttf"; sourceTree = "<group>"; };
 		84EF5FAA22ABF5EC001005AA /* Sarabun-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Sarabun-SemiBold.ttf"; sourceTree = "<group>"; };
-		84EF5FAD22AC013B001005AA /* db_models.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = db_models.pb.swift; path = "rtfm-backend/rtfm/rtfm/models/proto_models/db_models.pb.swift"; sourceTree = SOURCE_ROOT; };
+		84EF5FAF22AC0CE4001005AA /* TransactionsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsManager.swift; sourceTree = "<group>"; };
+		84EF5FB122AC0E47001005AA /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		84EF5FB322AC0F54001005AA /* ApiProtobufResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiProtobufResponseModel.swift; sourceTree = "<group>"; };
+		84EF5FB522AC0F81001005AA /* ApiSuccessEmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiSuccessEmptyResponse.swift; sourceTree = "<group>"; };
+		84EF5FB722AC115B001005AA /* db_models.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = db_models.pb.swift; sourceTree = "<group>"; };
+		84EF5FB922AC16FE001005AA /* empty.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = empty.pb.swift; sourceTree = "<group>"; };
 		A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RTFM.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB1FA68045B8B2E39652F83E /* Pods-RTFM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.release.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.release.xcconfig"; sourceTree = "<group>"; };
 		E933BA80FA10CB64A3264672 /* Pods-RTFM.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RTFM.debug.xcconfig"; path = "Target Support Files/Pods-RTFM/Pods-RTFM.debug.xcconfig"; sourceTree = "<group>"; };
@@ -150,12 +160,15 @@
 		84EF5F6E22AB8E89001005AA /* API */ = {
 			isa = PBXGroup;
 			children = (
+				84EF5FB122AC0E47001005AA /* Api.swift */,
+				84EF5F7922AB918F001005AA /* ApiHostManager.swift */,
 				84EF5FAC22AC012E001005AA /* Protobuf */,
 				84EF5F7322AB8EE9001005AA /* ApiRequest.swift */,
 				84EF5F7722AB8F4C001005AA /* ApiResponseModel.swift */,
-				84EF5F7922AB918F001005AA /* ApiHostManager.swift */,
 				84EF5F8522AB9754001005AA /* ApiRequestEncoding.swift */,
 				84EF5F9022ABAC88001005AA /* ApiRequestDecoding.swift */,
+				84EF5FB322AC0F54001005AA /* ApiProtobufResponseModel.swift */,
+				84EF5FB522AC0F81001005AA /* ApiSuccessEmptyResponse.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -176,6 +189,7 @@
 				84EF5F7E22AB950F001005AA /* LocalizationManager.swift */,
 				84EF5F8722AB9891001005AA /* ApiRequestsQueueManager.swift */,
 				84EF5F8922AB98CA001005AA /* InternetConnectionManager.swift */,
+				84EF5FAF22AC0CE4001005AA /* TransactionsManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -225,7 +239,8 @@
 		84EF5FAC22AC012E001005AA /* Protobuf */ = {
 			isa = PBXGroup;
 			children = (
-				84EF5FAD22AC013B001005AA /* db_models.pb.swift */,
+				84EF5FB922AC16FE001005AA /* empty.pb.swift */,
+				84EF5FB722AC115B001005AA /* db_models.pb.swift */,
 			);
 			path = Protobuf;
 			sourceTree = "<group>";
@@ -379,19 +394,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				84EF5FB822AC115B001005AA /* db_models.pb.swift in Sources */,
+				84EF5FB422AC0F54001005AA /* ApiProtobufResponseModel.swift in Sources */,
 				84EF5F8A22AB98CA001005AA /* InternetConnectionManager.swift in Sources */,
 				846869E622AB88FA00970EAB /* RTFM.xcdatamodeld in Sources */,
 				84EF5F7F22AB950F001005AA /* LocalizationManager.swift in Sources */,
 				84EF5F9122ABAC88001005AA /* ApiRequestDecoding.swift in Sources */,
 				846869E022AB88FA00970EAB /* MainViewController.swift in Sources */,
 				84EF5F9922ABD179001005AA /* MainNavigationViewController.swift in Sources */,
+				84EF5FB622AC0F81001005AA /* ApiSuccessEmptyResponse.swift in Sources */,
+				84EF5FB222AC0E47001005AA /* Api.swift in Sources */,
 				84EF5F9722ABC4B5001005AA /* UIStoryboardExtensions.swift in Sources */,
+				84EF5FBA22AC16FF001005AA /* empty.pb.swift in Sources */,
 				84EF5F8F22AB992D001005AA /* Reachability.m in Sources */,
 				84EF5F7A22AB918F001005AA /* ApiHostManager.swift in Sources */,
 				84EF5F7C22AB92F0001005AA /* Queue.swift in Sources */,
 				84EF5F7422AB8EE9001005AA /* ApiRequest.swift in Sources */,
 				846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */,
-				84EF5FAE22AC013B001005AA /* db_models.pb.swift in Sources */,
+				84EF5FB022AC0CE4001005AA /* TransactionsManager.swift in Sources */,
 				84EF5F9322ABBA7F001005AA /* DataExtensions.swift in Sources */,
 				84EF5F7622AB8F0F001005AA /* BaseError.swift in Sources */,
 				84EF5F9F22ABDEB9001005AA /* TransactionsViewController.swift in Sources */,

@@ -15,6 +15,6 @@ extension UIDevice {
     }
     
     var modelName: String {
-        return UIDevice.current.modelName
+        return UIDevice.current.model
     }
 }

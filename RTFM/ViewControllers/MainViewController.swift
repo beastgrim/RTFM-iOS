@@ -113,6 +113,8 @@ class HeaderView: UIView {
 
 class MainViewController: UIViewController {
     
+    let transactionManager: TransactionsManager = .shared
+    
     @IBOutlet var headerView: HeaderView!
     @IBOutlet var transactionsTitleLabel: UILabel! {
         didSet {

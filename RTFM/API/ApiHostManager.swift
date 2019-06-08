@@ -11,8 +11,7 @@ import Alamofire
 
 class ApiHostManager {
     
-//    static let baseUrl: String = "http://google.com/"
-    static let baseUrl: URL = URL(string: "http://google.com/")!
+    static let baseUrl: URL = URL(string: "http://192.168.47.69:8080/")!
     
     static let operationSession: SessionManager = {
         
