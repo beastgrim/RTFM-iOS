@@ -27,6 +27,14 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>Scan QR code</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Sarabun-Bold.ttf</string>
+		<string>Sarabun-BoldItalic.ttf</string>
+		<string>Sarabun-Italic.ttf</string>
+		<string>Sarabun-Regular.ttf</string>
+		<string>Sarabun-SemiBold.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

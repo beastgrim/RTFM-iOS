@@ -18,6 +18,15 @@ class QRScannerViewController: UIViewController {
     @IBOutlet var targetImageView: UIImageView!
     @IBOutlet var closeButton: UIButton!
 
+    static let session: AVCaptureSession = {
+        let session = AVCaptureSession()
+        let device = AVCaptureDevice.default(for: .video)!
+        let input = try! AVCaptureDeviceInput.init(device: device)
+        session.addInput(input)
+        let output = AVCaptureMetadataOutput()
+        session.addOutput(output)
+        return session
+    }()
     
     weak var delegate: QRScannerViewControllerDelegate?
     class func newScanner() -> QRScannerViewController {
@@ -53,18 +62,8 @@ class QRScannerViewController: UIViewController {
     private var preview: AVCaptureVideoPreviewLayer!
     
     private func setupScanner() {
-        do {
-            self.device = AVCaptureDevice.default(for: .video)
-            
-            self.input = try AVCaptureDeviceInput.init(device: self.device)
-        } catch {
-            return
-        }
-
-        self.session = AVCaptureSession()
-        self.output = AVCaptureMetadataOutput()
-        self.session.addOutput(self.output)
-        self.session.addInput(self.input)
+        self.session = QRScannerViewController.session
+        self.output = self.session.outputs.first! as! AVCaptureMetadataOutput
         
         self.output.setMetadataObjectsDelegate(self, queue: .main)
         self.output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]

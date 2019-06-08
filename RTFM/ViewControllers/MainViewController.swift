@@ -99,28 +99,51 @@ class HeaderView: UIView {
             self.moneyLabel.attributedText = NSMutableAttributedString(string: "1500.00", attributes: [.paragraphStyle: paragraphStyle])
         }
     }
-    @IBOutlet var addButton: UIButton!
-    @IBOutlet var historyButton: UIButton!
+    @IBOutlet var addButton: UIButton! {
+        didSet {
+            self.addButton.setBackgroundImage(UIImage(named: "add"), for: .normal)
+        }
+    }
+    @IBOutlet var historyButton: UIButton! {
+        didSet {
+            self.historyButton.setBackgroundImage(UIImage(named: "history"), for: .normal)
+        }
+    }
 }
 
 class MainViewController: UIViewController {
     
     @IBOutlet var headerView: HeaderView!
-    
+    @IBOutlet var transactionsTitleLabel: UILabel! {
+        didSet {
+            self.transactionsTitleLabel.textColor = UIColor(red: 0.23, green: 0.25, blue: 0.29, alpha: 1)
+            self.transactionsTitleLabel.font = UIFont(name: "Sarabun-SemiBold", size: 18)
+        }
+    }
+    @IBOutlet var payButton: UIButton! {
+        didSet {
+            self.payButton.titleLabel?.font = UIFont(name: "Sarabun-SemiBold", size: 16)
+            self.payButton.titleLabel?.textColor = .white
+        }
+    }
+
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         self.title = "Мой кошелек"
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        self.title = "Мой кошелек"
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    // MARK: - Public
+    
+    @IBAction @objc public func actionStartPayment(_ sender: Any?) {
         let scanner = QRScannerViewController.newScanner()
         scanner.delegate = self
         self.present(scanner, animated: true, completion: nil)
