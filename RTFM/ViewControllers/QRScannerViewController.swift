@@ -63,7 +63,7 @@ class QRScannerViewController: UIViewController {
     
     private func setupScanner() {
         self.session = QRScannerViewController.session
-        self.output = self.session.outputs.first! as! AVCaptureMetadataOutput
+        self.output = self.session.outputs.first! as? AVCaptureMetadataOutput
         
         self.output.setMetadataObjectsDelegate(self, queue: .main)
         self.output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]

@@ -142,16 +142,16 @@
         <scene sceneID="x3a-Se-dJ5">
             <objects>
                 <tableViewController storyboardIdentifier="TransactionsViewController" id="cmS-dQ-JQR" customClass="TransactionsViewController" customModule="RTFM" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qYn-Qw-1Vl">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qYn-Qw-1Vl">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="349.5"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TransactionCell" rowHeight="72" id="Kt0-s4-W2z" customClass="TransactionCell" customModule="RTFM" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="72"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Kt0-s4-W2z" id="Hyu-ue-62o">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="71.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="72"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YgP-LL-puA">
@@ -211,6 +211,7 @@
                                     <outlet property="amountLabel" destination="kFS-p8-d9Q" id="dEG-G2-ZX8"/>
                                     <outlet property="descLabel" destination="xoy-Gh-vjz" id="eee-RR-cJS"/>
                                     <outlet property="iconView" destination="R9p-Np-btK" id="9CU-RI-C6n"/>
+                                    <outlet property="roundedView" destination="YgP-LL-puA" id="hnw-Zb-FHL"/>
                                     <outlet property="titleLabel" destination="voL-CD-zod" id="Agf-Ja-urX"/>
                                 </connections>
                             </tableViewCell>
