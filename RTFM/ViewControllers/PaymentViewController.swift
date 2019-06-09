@@ -19,14 +19,6 @@ class PaymentViewController: UIViewController {
 
         self.title = "Электронный чек"
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        if self.parent == self.navigationController {
-            self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        }
-    }
 
     /*
     // MARK: - Navigation

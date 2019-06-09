@@ -129,7 +129,17 @@ class MainViewController: UIViewController {
             self.payButton.titleLabel?.textColor = .white
         }
     }
-
+    
+    override var navigationBarBackgroundImage: UIImage? {
+        return UIImage()
+    }
+    override var navigationBarTintColor: UIColor? {
+        return .clear
+    }
+    override var largeTitleAttributes: [NSAttributedString.Key : Any]? {
+        return [.foregroundColor: UIColor.white]
+    }
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         self.title = "Мой кошелек"
@@ -147,8 +157,8 @@ class MainViewController: UIViewController {
         logout.tintColor = .white
         self.navigationItem.rightBarButtonItem = logout
         
+        self.headerView.activity.hidesWhenStopped = true
         self.actionReloadUserInfo()
-        self.actionUpdateUserInfo()
         
         self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidUserInfo, object: nil, queue: .main) { (_) in
             
@@ -159,6 +169,7 @@ class MainViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
+        self.actionUpdateUserInfo()
         self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
     }
     

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0ED823E9A24C716618B725E6 /* Pods_RTFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */; };
+		84287B7922ACEF4C00A3A234 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84287B7822ACEF4C00A3A234 /* UIViewControllerExtensions.swift */; };
 		846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DD22AB88FA00970EAB /* AppDelegate.swift */; };
 		846869E022AB88FA00970EAB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DF22AB88FA00970EAB /* MainViewController.swift */; };
 		846869E322AB88FA00970EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846869E122AB88FA00970EAB /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		84287B7822ACEF4C00A3A234 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		846869DA22AB88FA00970EAB /* RTFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846869DD22AB88FA00970EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846869DF22AB88FA00970EAB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 				84EF5F8022AB95A6001005AA /* UIDeviceExtensions.swift */,
 				84EF5F9222ABBA7F001005AA /* DataExtensions.swift */,
 				84EF5F9622ABC4B5001005AA /* UIStoryboardExtensions.swift */,
+				84287B7822ACEF4C00A3A234 /* UIViewControllerExtensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				84EF5FB822AC115B001005AA /* db_models.pb.swift in Sources */,
+				84287B7922ACEF4C00A3A234 /* UIViewControllerExtensions.swift in Sources */,
 				84EF5FB422AC0F54001005AA /* ApiProtobufResponseModel.swift in Sources */,
 				84EF5F8A22AB98CA001005AA /* InternetConnectionManager.swift in Sources */,
 				846869E622AB88FA00970EAB /* RTFM.xcdatamodeld in Sources */,

@@ -7,14 +7,12 @@
 //
 
 import UIKit
-import CoreData
 
 class TransactionHeader: UITableViewHeaderFooterView {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.textLabel?.font = UIFont(name: "Sarabun-Medium", size: 12)!
         self.textLabel?.textColor = UIColor(red: 0.46, green: 0.5, blue: 0.55, alpha: 1)
-        self.contentView.backgroundColor = .clear
     }
     
     override func layoutSubviews() {
@@ -76,21 +74,15 @@ class TransactionsViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.tableView.register(TransactionHeader.self, forHeaderFooterViewReuseIdentifier: "header")
         self.tableView.separatorStyle = .none
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if self.parent == self.navigationController {
-            self.navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.black]
-        }
+
+        self.reloadData()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        self.tableView.register(TransactionHeader.self, forHeaderFooterViewReuseIdentifier: "header")
         self.reloadData()
         
         self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidChangeRecent, object: nil, queue: .main, using: { (note) in
@@ -111,14 +103,14 @@ class TransactionsViewController: UITableViewController {
     private var days: [DayPayments] = []
     private var cellDateFormatter: DateFormatter = {
         let df = DateFormatter()
-        df.dateStyle = .medium
-        df.timeStyle = .none
+        df.dateStyle = .none
+        df.timeStyle = .short
         return df
     }()
     private var headerDateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
-        df.timeStyle = .short
+        df.timeStyle = .none
         return df
     }()
     private var observer: AnyObject?
@@ -158,10 +150,17 @@ class TransactionsViewController: UITableViewController {
         let interval = date.timeIntervalSince1970
         if interval == self.todayTimeStamp {
             return "Сегодня"
-        }  else if interval == self.todayTimeStamp-3600*24 {
+        } else if interval == self.todayTimeStamp-3600*24 {
             return "Вчера"
+        } else if interval == self.todayTimeStamp-3600*48 {
+            return "Позавчера"
         }
         return self.headerDateFormatter.string(from: date)
+    }
+    
+    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+        let header = view as! TransactionHeader
+        header.backgroundView?.backgroundColor = UIColor(red: 0.92, green: 0.92, blue: 0.92, alpha: 1.0)
     }
     
     override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
@@ -203,8 +202,4 @@ class TransactionsViewController: UITableViewController {
         controller.payment = payment
         self.navigationController?.pushViewController(controller, animated: true)
     }
-}
-
-extension TransactionsViewController: NSFetchedResultsControllerDelegate {
-    
 }
