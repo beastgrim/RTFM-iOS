@@ -35,7 +35,7 @@ class PaySourceCollectionViewCell: UICollectionViewCell {
         super.layoutSubviews()
         
         self.shadowLayer.frame = self.contentView.bounds
-        self.shadowLayer.shadowPath = UIBezierPath(roundedRect: self.shadowView.frame, cornerRadius: 10).cgPath
+        self.shadowLayer.shadowPath = UIBezierPath(roundedRect: self.contentView.bounds.insetBy(dx: 8, dy: 8), cornerRadius: 10).cgPath
     }
     
     override var isSelected: Bool {
@@ -73,11 +73,15 @@ class RechargeViewController: UIViewController, UICollectionViewDelegate, UIColl
     @IBOutlet var payButton: UIButton!
 
     private(set) var paymentsSources: [PaymentSourceViewModel] = []
+    private(set) var selectedPayment: PaymentSourceViewModel? {
+        didSet { self.payButton?.isEnabled = self.selectedPayment != nil }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "Пополнение"
+        self.selectedPayment = nil
         
         var payments = [PaymentSourceViewModel]()
         payments.append(PaymentSourceViewModel(id: 0, icon: UIImage(named: "phone-ic")!, title: "По номеру".uppercased()))
@@ -124,6 +128,11 @@ class RechargeViewController: UIViewController, UICollectionViewDelegate, UIColl
         cell.iconImageView.image = paySource.icon
         cell.titleLabel.text = paySource.title
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let paySource = self.paymentsSources[indexPath.row]
+        self.selectedPayment = paySource
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {

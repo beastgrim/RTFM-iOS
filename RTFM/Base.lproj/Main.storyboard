@@ -283,7 +283,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="FUc-cw-j9Y">
-                                <rect key="frame" x="0.0" y="76" width="414" height="534"/>
+                                <rect key="frame" x="0.0" y="76" width="414" height="474"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sUh-0L-jeN">
                                     <size key="itemSize" width="179" height="134"/>
@@ -389,7 +389,7 @@
                             <constraint firstItem="FUc-cw-j9Y" firstAttribute="trailing" secondItem="yrk-r0-jSX" secondAttribute="trailing" id="8Uh-qx-dJt"/>
                             <constraint firstItem="aUI-ne-I43" firstAttribute="top" secondItem="i0H-1s-cmo" secondAttribute="bottom" constant="8" id="K8W-iF-tSf"/>
                             <constraint firstItem="FUc-cw-j9Y" firstAttribute="top" secondItem="yrk-r0-jSX" secondAttribute="top" constant="32" id="KxH-ad-I9O"/>
-                            <constraint firstItem="i0H-1s-cmo" firstAttribute="top" secondItem="FUc-cw-j9Y" secondAttribute="bottom" constant="100" id="SeL-XF-1xb"/>
+                            <constraint firstItem="i0H-1s-cmo" firstAttribute="top" secondItem="FUc-cw-j9Y" secondAttribute="bottom" constant="160" id="SeL-XF-1xb"/>
                             <constraint firstItem="aUI-ne-I43" firstAttribute="centerX" secondItem="0Ta-kv-t9f" secondAttribute="centerX" id="VI1-Jk-akF"/>
                             <constraint firstItem="FUc-cw-j9Y" firstAttribute="leading" secondItem="yrk-r0-jSX" secondAttribute="leading" id="X74-Jn-lF5"/>
                             <constraint firstItem="yrk-r0-jSX" firstAttribute="bottom" secondItem="aUI-ne-I43" secondAttribute="bottom" id="ll5-1q-y2Y"/>
