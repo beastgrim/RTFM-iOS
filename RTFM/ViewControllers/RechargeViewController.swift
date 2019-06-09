@@ -102,9 +102,15 @@ class RechargeViewController: UIViewController, UICollectionViewDelegate, UIColl
     }
     
     @IBAction @objc public func actionRefill(_ sender: Any?) {
-        self.manager.actionRefill(amount: 4000)
         self.payButton.isEnabled = false
         MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.manager.actionRefill(amount: 4000, completion: { err in
+            if err == nil {
+                self.actionFinishRefill()
+            } else {
+                // TODO: show error
+            }
+        })
     }
     
     private func actionFinishRefill() {

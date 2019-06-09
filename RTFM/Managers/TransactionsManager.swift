@@ -85,7 +85,7 @@ class TransactionsManager {
     }
     
     private var refillRequest: ApiRequest<ApiProtobufResponseModel<ApiSuccessEmptyResponse>>?
-    public func actionRefill(amount: Int) {
+    public func actionRefill(amount: Int, completion: @escaping (Error?)->Void) {
         guard self.refillRequest == nil else {
             return
         }
@@ -94,8 +94,10 @@ class TransactionsManager {
             self.actionUpdateUserInfo()
             self.refillRequest = nil
             NotificationCenter.default.post(name: .transactionManagerDidRefill, object: self)
+            completion(nil)
         }, failureHandler: { (error) in
             self.refillRequest = nil
+            completion(error)
         })
         self.refillRequest?.start()
     }

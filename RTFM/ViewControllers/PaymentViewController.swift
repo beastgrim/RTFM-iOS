@@ -18,7 +18,9 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Электронный чек"
+        let df = DateFormatter()
+        let date = Date(timeIntervalSince1970: TimeInterval(self.payment!.date))
+        self.title = self.payment.title + " \(df.string(from: date))"
         
         let code = String(TransactionsManager.shared.clientId)
         QRCodeManager.generateQRCode(string: code) { (image) in
