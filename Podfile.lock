@@ -1,0 +1,56 @@
+PODS:
+  - Alamofire (4.8.2)
+  - CocoaLumberjack/Core (3.5.3)
+  - CocoaLumberjack/Swift (3.5.3):
+    - CocoaLumberjack/Core
+  - EFQRCode (5.0.0):
+    - swift_qrcodejs (~> 1.1.1)
+  - KeychainAccess (3.2.0)
+  - MBProgressHUD (1.1.0)
+  - PromisesObjC (1.2.8)
+  - PromisesSwift (1.2.8):
+    - PromisesObjC (= 1.2.8)
+  - SDWebImage (5.0.6):
+    - SDWebImage/Core (= 5.0.6)
+  - SDWebImage/Core (5.0.6)
+  - swift_qrcodejs (1.1.1)
+  - SwiftProtobuf (1.5.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - CocoaLumberjack/Swift
+  - EFQRCode (~> 5.0.0)
+  - KeychainAccess
+  - MBProgressHUD (~> 1.1.0)
+  - PromisesSwift (~> 1.2.7)
+  - SDWebImage (~> 5.0)
+  - SwiftProtobuf (~> 1.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - CocoaLumberjack
+    - EFQRCode
+    - KeychainAccess
+    - MBProgressHUD
+    - PromisesObjC
+    - PromisesSwift
+    - SDWebImage
+    - swift_qrcodejs
+    - SwiftProtobuf
+
+SPEC CHECKSUMS:
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  CocoaLumberjack: 2f44e60eb91c176d471fdba43b9e3eae6a721947
+  EFQRCode: 07437cfbce3a1e497397a4f3d766c980d8972608
+  KeychainAccess: 3b1bf8a77eb4c6ea1ce9404c292e48f948954c6b
+  MBProgressHUD: e7baa36a220447d8aeb12769bf0585582f3866d9
+  PromisesObjC: c119f3cd559f50b7ae681fa59dc1acd19173b7e6
+  PromisesSwift: 37bad6f4daddb02f7c9c531efe91e8b21c13ee2f
+  SDWebImage: 920f1a2ff1ca8296ad34f6e0510a1ef1d70ac965
+  swift_qrcodejs: 0bacbfe321a99954c7b8e04c75562007ea4e4f7c
+  SwiftProtobuf: 241400280f912735c1e1b9fe675fdd2c6c4d42e2
+
+PODFILE CHECKSUM: 10b7a92a075169f1bbb4a15a691933b9296f674e
+
+COCOAPODS: 1.6.1

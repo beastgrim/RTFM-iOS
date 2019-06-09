@@ -16,6 +16,7 @@ class QRPresentorViewController: UIViewController {
     
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
+    @IBOutlet var payButton: UIButton!
 
     public var code: String? {
         didSet {
@@ -37,5 +38,11 @@ class QRPresentorViewController: UIViewController {
     @IBAction @objc public func actionClose(_ sender: Any?) {
         self.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction @objc public func actionPayOnline(_ sender: Any?) {
+        // TODO: Pay online
+    }
+    
+    // MARK: - Private
 
 }

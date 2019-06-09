@@ -14,6 +14,7 @@ class TransactionHeader: UITableViewHeaderFooterView {
         super.awakeFromNib()
         self.textLabel?.font = UIFont(name: "Sarabun-Medium", size: 12)!
         self.textLabel?.textColor = UIColor(red: 0.46, green: 0.5, blue: 0.55, alpha: 1)
+        self.contentView.backgroundColor = .clear
     }
     
     override func layoutSubviews() {
@@ -48,13 +49,13 @@ class TransactionCell: UITableViewCell {
         self.roundedView.clipsToBounds = true
         
         self.amountLabel.textColor = UIColor(red: 0.73, green: 0.42, blue: 0.85, alpha: 1)
-        self.amountLabel.font = UIFont(name: "Sarabun-SemiBold", size: 16)
+        self.amountLabel.font = UIFont(name: "Sarabun-SemiBold", size: 16)!
         
         self.titleLabel.textColor = UIColor(red: 0.09, green: 0.11, blue: 0.2, alpha: 1)
-        self.titleLabel.font = UIFont(name: "Sarabun-Regular", size: 12)
+        self.titleLabel.font = UIFont(name: "Sarabun", size: 12)!
         
         self.descLabel.textColor = UIColor(red: 0.46, green: 0.5, blue: 0.55, alpha: 1)
-        self.descLabel.font = UIFont(name: "Sarabun-Regular", size: 12)
+        self.descLabel.font = UIFont(name: "Sarabun", size: 12)!
     }
     
     override func layoutSubviews() {
@@ -117,7 +118,7 @@ class TransactionsViewController: UITableViewController {
     private var headerDateFormatter: DateFormatter = {
         let df = DateFormatter()
         df.dateStyle = .short
-        df.timeStyle = .none
+        df.timeStyle = .short
         return df
     }()
     private var observer: AnyObject?
@@ -157,7 +158,9 @@ class TransactionsViewController: UITableViewController {
         let interval = date.timeIntervalSince1970
         if interval == self.todayTimeStamp {
             return "Сегодня"
-        } 
+        }  else if interval == self.todayTimeStamp-3600*24 {
+            return "Вчера"
+        }
         return self.headerDateFormatter.string(from: date)
     }
     
@@ -191,6 +194,14 @@ class TransactionsViewController: UITableViewController {
         }
         cell.iconView.image = icon
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let payment: CompletedPayment = self.days[indexPath.section].payments[indexPath.row]
+        
+        let controller: PaymentViewController = UIStoryboard.viewController()
+        controller.payment = payment
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

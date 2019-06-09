@@ -23,8 +23,9 @@ struct DayPayments {
         let df = DateFormatter()
         df.dateStyle = .short
 
+        let cal = Calendar.current
         var currentDateString = df.string(from: date)
-        var day = DayPayments(date: date, payments: [])
+        var day = DayPayments(date: cal.startOfDay(for: date), payments: [])
         var results = [day]
 
         for p in payments {
@@ -34,7 +35,7 @@ struct DayPayments {
             if str == currentDateString {
                 results[results.count-1].payments.append(p)
             } else {
-                day = DayPayments(date: pDate, payments: [p])
+                day = DayPayments(date: cal.startOfDay(for: pDate), payments: [p])
                 currentDateString = str
                 results.append(day)
             }

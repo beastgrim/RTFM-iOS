@@ -1,0 +1,6 @@
+framework module Pods_RTFM {
+  umbrella header "Pods-RTFM-umbrella.h"
+
+  export *
+  module * { export * }
+}

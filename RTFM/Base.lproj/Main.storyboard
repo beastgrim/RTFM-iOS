@@ -57,8 +57,8 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Lkh-j1-rrM">
-                                        <rect key="frame" x="188.5" y="115.5" width="37" height="37"/>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="Lkh-j1-rrM">
+                                        <rect key="frame" x="197" y="115.5" width="20" height="20"/>
                                     </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -238,7 +238,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OM6-hx-JKa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1074" y="631"/>
+            <point key="canvasLocation" x="1075" y="575"/>
+        </scene>
+        <!--Payment View Controller-->
+        <scene sceneID="Nkl-yK-Tzo">
+            <objects>
+                <viewController storyboardIdentifier="PaymentViewController" id="zpM-wu-e2L" customClass="PaymentViewController" customModule="RTFM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YMr-ed-GuH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eYf-sa-Oxh">
+                                <rect key="frame" x="87" y="60" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="eYf-sa-Oxh" secondAttribute="height" multiplier="1:1" id="Ur8-a2-eHQ"/>
+                                    <constraint firstAttribute="width" constant="240" id="bpu-pO-m4S"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="eYf-sa-Oxh" firstAttribute="top" secondItem="cws-vg-90h" secondAttribute="top" constant="16" id="Ywh-fY-HsR"/>
+                            <constraint firstItem="eYf-sa-Oxh" firstAttribute="centerX" secondItem="YMr-ed-GuH" secondAttribute="centerX" id="zbY-dI-ZuK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cws-vg-90h"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TN0-0w-2Mf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1908.6956521739132" y="752.67857142857144"/>
         </scene>
         <!--Scanner View Controller-->
         <scene sceneID="sd1-br-xFM">
@@ -309,13 +337,28 @@
                                     <action selector="actionClose:" destination="ow5-t6-Pdf" eventType="touchUpInside" id="csU-CH-bOt"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V11-Nq-c4y">
+                                <rect key="frame" x="76.5" y="686" width="261" height="88"/>
+                                <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="32" minY="16" maxX="32" maxY="16"/>
+                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="17"/>
+                                <state key="normal" title="Завершить оплату online" backgroundImage="pay-bg">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionPayOnline:" destination="ow5-t6-Pdf" eventType="touchUpInside" id="TJ6-Kg-0Y4"/>
+                                    <action selector="actionStartPayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H17-Wb-Tsr"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="leading" secondItem="KMc-N9-wGq" secondAttribute="leading" id="Npc-it-DMJ"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="bottom" secondItem="FRk-Kk-UjH" secondAttribute="bottom" id="Omf-wC-gg5"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="trailing" secondItem="IwG-LP-rix" secondAttribute="trailing" id="b3i-9R-YAX"/>
+                            <constraint firstItem="FRk-Kk-UjH" firstAttribute="top" secondItem="V11-Nq-c4y" secondAttribute="bottom" id="bz2-Uw-y3N"/>
                             <constraint firstItem="FRk-Kk-UjH" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="gvu-Ab-4l4"/>
+                            <constraint firstItem="V11-Nq-c4y" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="ihi-hW-tEB"/>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="top" secondItem="KMc-N9-wGq" secondAttribute="top" id="k37-vX-dCr"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KMc-N9-wGq"/>
@@ -323,6 +366,7 @@
                     <connections>
                         <outlet property="cancelButton" destination="FRk-Kk-UjH" id="ZUp-zH-zO3"/>
                         <outlet property="imageView" destination="IwG-LP-rix" id="vL2-eh-zC1"/>
+                        <outlet property="payButton" destination="V11-Nq-c4y" id="EVX-G3-LYL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra7-ll-aa0" userLabel="First Responder" sceneMemberID="firstResponder"/>

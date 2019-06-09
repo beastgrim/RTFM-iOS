@@ -11,7 +11,7 @@ import Alamofire
 
 class ApiHostManager {
     
-    static let baseUrl: URL = URL(string: "http://ec2-3-82-45-111.compute-1.amazonaws.com:8080/")!
+    static let baseUrl: URL = URL(string: "http://ec2-3-82-45-111.compute-1.amazonaws.com/")!
 
     static let operationSession: SessionManager = {
         

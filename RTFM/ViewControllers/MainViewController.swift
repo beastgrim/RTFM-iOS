@@ -147,6 +147,7 @@ class MainViewController: UIViewController {
         logout.tintColor = .white
         self.navigationItem.rightBarButtonItem = logout
         
+        self.actionReloadUserInfo()
         self.actionUpdateUserInfo()
         
         self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidUserInfo, object: nil, queue: .main) { (_) in

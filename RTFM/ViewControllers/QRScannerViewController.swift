@@ -15,13 +15,25 @@ protocol QRScannerViewControllerDelegate: AnyObject {
 
 class QRScannerViewController: UIViewController {
     
+    public var useFrontCamera: Bool = false
     @IBOutlet var targetImageView: UIImageView!
     @IBOutlet var closeButton: UIButton!
 
     static let session: AVCaptureSession = {
+        func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+            let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
+            for device in discoverySession.devices {
+                if device.position == position {
+                    return device
+                }
+            }
+            return nil
+        }
+        
         let session = AVCaptureSession()
         let device = AVCaptureDevice.default(for: .video)!
-        let input = try! AVCaptureDeviceInput.init(device: device)
+        let camera = cameraWithPosition(position: .back)!
+        let input = try! AVCaptureDeviceInput.init(device: camera)
         session.addInput(input)
         let output = AVCaptureMetadataOutput()
         session.addOutput(output)
@@ -84,6 +96,17 @@ class QRScannerViewController: UIViewController {
             self.session.stopRunning()
             self.delegate?.qrScanner(self, didScan: value)
         }
+    }
+    
+    private func cameraWithPosition(position: AVCaptureDevice.Position) -> AVCaptureDevice? {
+        let discoverySession = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
+        for device in discoverySession.devices {
+            if device.position == position {
+                return device
+            }
+        }
+        
+        return nil
     }
 }
 
