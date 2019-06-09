@@ -147,7 +147,7 @@ class MainViewController: UIViewController {
         logout.tintColor = .white
         self.navigationItem.rightBarButtonItem = logout
         
-        self.actionReloadUserInfo()
+        self.actionUpdateUserInfo()
         
         self.observer = NotificationCenter.default.addObserver(forName: .transactionManagerDidUserInfo, object: nil, queue: .main) { (_) in
             
@@ -189,11 +189,11 @@ class MainViewController: UIViewController {
     }
     
     public func actionUpdateUserInfo() {
-        self.transactionManager.actionUpdateRecentTransactions()
+        self.transactionManager.actionUpdateUserInfo()
     }
     
     public func actionReloadUserInfo() {
-        if let balance = self.transactionManager.userInfo?.balance {
+        if let balance = self.transactionManager.userInfo?.balance, !balance.isEmpty {
             self.headerView.moneyLabel.text = balance
             self.headerView.activity.stopAnimating()
             self.headerView.titleLabel.text = "Текущий баланс"

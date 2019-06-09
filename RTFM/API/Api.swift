@@ -19,8 +19,8 @@ class Api {
         var payload = UserInfoRequest()
         payload.clientID = clientId
         
-        let request = ApiRequest(protobufToHost: host, path: "api/recent_payments",
-                                 uniqueType: "recent_transactions",
+        let request = ApiRequest(protobufToHost: host, path: "api/user_info",
+                                 uniqueType: "user_info",
                                  protobufRequest: payload, successHandler: successHandler,
                                  failureHandler: { (error) in
                                     

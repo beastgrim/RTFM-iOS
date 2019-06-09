@@ -70,7 +70,7 @@ class TransactionsManager {
         
         self.userInfoRequest = Api.userInfo(host: self.host, clientId: self.clientId, successHandler: { (response) in
             
-            print("Response: \(response)")
+            print("UserInfo: \(response.protobufObject)")
             let userInfo = response.protobufObject
             self.userInfoRequest = nil
             if self.userInfo != userInfo {
@@ -81,5 +81,6 @@ class TransactionsManager {
             print("Error: \(error)")
             self.userInfoRequest = nil
         })
+        self.userInfoRequest?.start()
     }
 }
