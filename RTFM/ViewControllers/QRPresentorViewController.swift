@@ -65,7 +65,7 @@ class QRPresentorViewController: UIViewController {
     
     private func parseQRCode(_ code: String) -> TicketInfo? {
         // TODO: parse QR code
-        return TicketInfo(transactionId: 1, transportId: 2)
+        return TicketInfo(transactionId: 1, transportId: 7)
     }
 
 }

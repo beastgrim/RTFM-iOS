@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wall" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-l9-bph">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lounch-bg" translatesAutoresizingMaskIntoConstraints="NO" id="gdD-l9-bph">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K0I-Ec-Wv5">
-                                <rect key="frame" x="147" y="228" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lounch-icon" translatesAutoresizingMaskIntoConstraints="NO" id="K0I-Ec-Wv5">
+                                <rect key="frame" x="117" y="208" width="180" height="160"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="120" id="iSn-aB-FWI"/>
-                                    <constraint firstAttribute="width" constant="120" id="xH2-qu-e6f"/>
+                                    <constraint firstAttribute="height" constant="160" id="iSn-aB-FWI"/>
+                                    <constraint firstAttribute="width" constant="180" id="xH2-qu-e6f"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -47,6 +47,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="wall" width="375" height="281"/>
+        <image name="lounch-bg" width="375" height="759"/>
+        <image name="lounch-icon" width="332" height="272"/>
     </resources>
 </document>

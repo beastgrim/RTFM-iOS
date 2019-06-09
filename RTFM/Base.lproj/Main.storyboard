@@ -417,11 +417,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4y-Rb-O6P">
-                                <rect key="frame" x="39" y="758" width="336" height="88"/>
+                                <rect key="frame" x="107" y="758" width="200" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="32Z-CA-Qxv"/>
+                                    <constraint firstAttribute="height" constant="88" id="iVF-1d-Guw"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
+                                <state key="normal" title="Закрыть">
                                     <color key="titleColor" white="0.37336793664383561" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -465,11 +469,15 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-Kk-UjH">
-                                <rect key="frame" x="39" y="774" width="336" height="88"/>
+                                <rect key="frame" x="107" y="774" width="200" height="88"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="67S-g1-y0f"/>
+                                    <constraint firstAttribute="height" constant="88" id="fOZ-0u-SkQ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
+                                <state key="normal" title="Закрыть">
                                     <color key="titleColor" white="0.37336793660000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -478,11 +486,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V11-Nq-c4y">
-                                <rect key="frame" x="76.5" y="686" width="261" height="88"/>
-                                <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="32" minY="16" maxX="32" maxY="16"/>
+                                <rect key="frame" x="103" y="686" width="208" height="88"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <inset key="contentEdgeInsets" minX="40" minY="16" maxX="40" maxY="16"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="17"/>
-                                <state key="normal" title="Завершить оплату online" backgroundImage="pay-bg">
+                                <state key="normal" title="Оплатить online" backgroundImage="pay-bg">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -490,16 +498,32 @@
                                     <action selector="actionStartPayment:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H17-Wb-Tsr"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Поднесите QR код к терминалу" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6JQ-K6-PGT">
+                                <rect key="frame" x="62.5" y="548" width="289" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="или завершите операцию" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VM0-Fh-gTA">
+                                <rect key="frame" x="103.5" y="580" width="207" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="leading" secondItem="KMc-N9-wGq" secondAttribute="leading" id="Npc-it-DMJ"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="bottom" secondItem="FRk-Kk-UjH" secondAttribute="bottom" id="Omf-wC-gg5"/>
+                            <constraint firstItem="VM0-Fh-gTA" firstAttribute="top" secondItem="6JQ-K6-PGT" secondAttribute="bottom" constant="8" id="VrX-R9-IWt"/>
+                            <constraint firstItem="VM0-Fh-gTA" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="XDE-Pf-vsI"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="trailing" secondItem="IwG-LP-rix" secondAttribute="trailing" id="b3i-9R-YAX"/>
                             <constraint firstItem="FRk-Kk-UjH" firstAttribute="top" secondItem="V11-Nq-c4y" secondAttribute="bottom" id="bz2-Uw-y3N"/>
+                            <constraint firstItem="6JQ-K6-PGT" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="dIH-5e-YVh"/>
                             <constraint firstItem="FRk-Kk-UjH" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="gvu-Ab-4l4"/>
                             <constraint firstItem="V11-Nq-c4y" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="ihi-hW-tEB"/>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="top" secondItem="KMc-N9-wGq" secondAttribute="top" id="k37-vX-dCr"/>
+                            <constraint firstItem="6JQ-K6-PGT" firstAttribute="top" secondItem="IwG-LP-rix" secondAttribute="bottom" constant="90" id="qfE-yj-Vfa"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KMc-N9-wGq"/>
                     </view>
@@ -533,7 +557,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel-bg" width="336" height="88"/>
         <image name="pay-bg" width="89" height="88"/>
         <image name="pay-field-bg" width="84" height="57"/>
         <image name="qr-space" width="146" height="146"/>
