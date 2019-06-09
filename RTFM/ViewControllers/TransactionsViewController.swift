@@ -99,6 +99,10 @@ class TransactionsViewController: UITableViewController {
         }
     }
     
+    public func actionUpdateData() {
+        self.transactionManager.actionUpdateRecentTransactions()
+    }
+    
     // MARK: - Private
     private var days: [DayPayments] = []
     private var cellDateFormatter: DateFormatter = {
@@ -118,10 +122,6 @@ class TransactionsViewController: UITableViewController {
         let date = Calendar.current.startOfDay(for: Date())
         return date.timeIntervalSince1970
     }()
-    
-    private func actionUpdateData() {
-        self.transactionManager.actionUpdateRecentTransactions()
-    }
     
     private func reloadData() {
         self.days = DayPayments.parsePayments(self.transactionManager.recentTransactions)

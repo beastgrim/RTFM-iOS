@@ -16,4 +16,13 @@ class QRCodeManager {
         
         return UIImage(cgImage: image)
     }
+    
+    class func generateQRCode(string: String, completion: @escaping (UIImage)->Void) {
+        Queue.parse.async {
+            let qrCodeImage = QRCodeManager.generateQRCode(string: string)
+            Queue.main.async {
+                completion(qrCodeImage)
+            }
+        }
+    }
 }

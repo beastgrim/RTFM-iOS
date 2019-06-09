@@ -417,14 +417,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L4y-Rb-O6P">
-                                <rect key="frame" x="107" y="758" width="200" height="88"/>
+                                <rect key="frame" x="107" y="827" width="200" height="19"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="32Z-CA-Qxv"/>
-                                    <constraint firstAttribute="height" constant="88" id="iVF-1d-Guw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
                                     <color key="titleColor" white="0.37336793664383561" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -469,14 +466,12 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-Kk-UjH">
-                                <rect key="frame" x="107" y="774" width="200" height="88"/>
+                                <rect key="frame" x="107" y="814" width="200" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="67S-g1-y0f"/>
-                                    <constraint firstAttribute="height" constant="88" id="fOZ-0u-SkQ"/>
+                                    <constraint firstAttribute="height" constant="48" id="n1s-zm-k8t"/>
                                 </constraints>
-                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
+                                <state key="normal" title="Закрыть">
                                     <color key="titleColor" white="0.37336793660000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -485,7 +480,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V11-Nq-c4y">
-                                <rect key="frame" x="103" y="686" width="208" height="88"/>
+                                <rect key="frame" x="103" y="726" width="208" height="88"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="40" minY="16" maxX="40" maxY="16"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="17"/>
@@ -509,17 +504,42 @@
                                 <color key="textColor" red="0.61568627450000002" green="0.61568627450000002" blue="0.61568627450000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JFd-08-bez" customClass="QRPresentorPriceView" customModule="RTFM" customModuleProvider="target">
+                                <rect key="frame" x="20" y="466" width="374" height="252"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uq2-4d-nzv">
+                                        <rect key="frame" x="0.0" y="104.5" width="374" height="43"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="36"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Uq2-4d-nzv" firstAttribute="centerY" secondItem="JFd-08-bez" secondAttribute="centerY" id="R14-8a-wJN"/>
+                                    <constraint firstItem="Uq2-4d-nzv" firstAttribute="leading" secondItem="nQh-BS-ccJ" secondAttribute="leading" id="Zhn-pl-YZR"/>
+                                    <constraint firstItem="nQh-BS-ccJ" firstAttribute="trailing" secondItem="Uq2-4d-nzv" secondAttribute="trailing" id="kCq-Wm-c0p"/>
+                                </constraints>
+                                <viewLayoutGuide key="safeArea" id="nQh-BS-ccJ"/>
+                                <connections>
+                                    <outlet property="titleLabel" destination="Uq2-4d-nzv" id="o2x-gA-TNp"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="KMc-N9-wGq" firstAttribute="trailing" secondItem="JFd-08-bez" secondAttribute="trailing" constant="20" id="6eL-ky-tR7"/>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="leading" secondItem="KMc-N9-wGq" secondAttribute="leading" id="Npc-it-DMJ"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="bottom" secondItem="FRk-Kk-UjH" secondAttribute="bottom" id="Omf-wC-gg5"/>
+                            <constraint firstItem="V11-Nq-c4y" firstAttribute="top" secondItem="JFd-08-bez" secondAttribute="bottom" constant="8" id="Tai-n7-yW9"/>
                             <constraint firstItem="VM0-Fh-gTA" firstAttribute="top" secondItem="6JQ-K6-PGT" secondAttribute="bottom" constant="8" id="VrX-R9-IWt"/>
                             <constraint firstItem="VM0-Fh-gTA" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="XDE-Pf-vsI"/>
                             <constraint firstItem="KMc-N9-wGq" firstAttribute="trailing" secondItem="IwG-LP-rix" secondAttribute="trailing" id="b3i-9R-YAX"/>
                             <constraint firstItem="FRk-Kk-UjH" firstAttribute="top" secondItem="V11-Nq-c4y" secondAttribute="bottom" id="bz2-Uw-y3N"/>
                             <constraint firstItem="6JQ-K6-PGT" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="dIH-5e-YVh"/>
+                            <constraint firstItem="JFd-08-bez" firstAttribute="leading" secondItem="KMc-N9-wGq" secondAttribute="leading" constant="20" id="dcc-aK-Zg0"/>
                             <constraint firstItem="FRk-Kk-UjH" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="gvu-Ab-4l4"/>
+                            <constraint firstItem="JFd-08-bez" firstAttribute="top" secondItem="IwG-LP-rix" secondAttribute="bottom" constant="8" id="hxb-Ps-t1i"/>
                             <constraint firstItem="V11-Nq-c4y" firstAttribute="centerX" secondItem="RPh-7Q-6r5" secondAttribute="centerX" id="ihi-hW-tEB"/>
                             <constraint firstItem="IwG-LP-rix" firstAttribute="top" secondItem="KMc-N9-wGq" secondAttribute="top" id="k37-vX-dCr"/>
                             <constraint firstItem="6JQ-K6-PGT" firstAttribute="top" secondItem="IwG-LP-rix" secondAttribute="bottom" constant="90" id="qfE-yj-Vfa"/>
@@ -530,11 +550,12 @@
                         <outlet property="cancelButton" destination="FRk-Kk-UjH" id="ZUp-zH-zO3"/>
                         <outlet property="imageView" destination="IwG-LP-rix" id="vL2-eh-zC1"/>
                         <outlet property="payButton" destination="V11-Nq-c4y" id="EVX-G3-LYL"/>
+                        <outlet property="priceView" destination="JFd-08-bez" id="BJw-by-yIs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ra7-ll-aa0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2710" y="21"/>
+            <point key="canvasLocation" x="2708.6956521739135" y="20.758928571428569"/>
         </scene>
         <!--Main Navigation View Controller-->
         <scene sceneID="aCY-Nv-sNd">
@@ -556,7 +577,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="cancel-bg" width="89" height="88"/>
+        <image name="cancel-bg" width="49" height="48"/>
         <image name="pay-bg" width="89" height="88"/>
         <image name="pay-field-bg" width="84" height="57"/>
         <image name="qr-space" width="146" height="146"/>

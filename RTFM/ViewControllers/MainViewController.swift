@@ -96,7 +96,7 @@ class HeaderView: UIView {
             let paragraphStyle = NSMutableParagraphStyle()
             paragraphStyle.lineSpacing = 10
             self.moneyLabel.textColor = UIColor(red: 1, green: 1, blue: 1, alpha: 1)
-            self.moneyLabel.font = UIFont(name: "Sarabun-Bold", size: 40)
+            self.moneyLabel.font = UIFont(name: "Sarabun-Bold", size: 36)
             self.moneyLabel.attributedText = NSMutableAttributedString(string: "1500.00", attributes: [.paragraphStyle: paragraphStyle])
         }
     }
@@ -164,6 +164,10 @@ class MainViewController: UIViewController {
             
             self.actionReloadUserInfo()
         }
+        self.connectObserver = NotificationCenter.default.addObserver(forName: .internetReachabilityChanged, object: nil, queue: .main, using: { (_) in
+            self.actionReloadUserInfo()
+            self.transactionsViewController?.actionUpdateData()
+        })
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -177,6 +181,9 @@ class MainViewController: UIViewController {
         if let observer = self.observer {
             NotificationCenter.default.removeObserver(observer)
         }
+        if let observer = self.connectObserver {
+            NotificationCenter.default.removeObserver(observer)
+        }
     }
     
     // MARK: - Public
@@ -188,11 +195,11 @@ class MainViewController: UIViewController {
     }
     
     public func actionGenerateQRCodeForPay() {
-        guard let transportId = self.transportId else {
+        guard let _ = self.transportId else {
             return
         }
         let presentor = QRPresentorViewController.newPresentor()
-        presentor.code = transportId
+        presentor.code = String(self.transactionManager.clientId)
         self.present(presentor, animated: true, completion: nil)
     }
     
@@ -239,6 +246,7 @@ class MainViewController: UIViewController {
     private var observer: AnyObject?
     private weak var transactionsViewController: TransactionsViewController!
     private var transportId: String?
+    private var connectObserver: AnyObject?
 }
 
 extension MainViewController: QRScannerViewControllerDelegate {

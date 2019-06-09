@@ -2,16 +2,19 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "cancel-bg.pdf",
+      "filename" : "Rectangle.pdf",
       "resizing" : {
-        "mode" : "3-part-horizontal",
+        "mode" : "9-part",
         "center" : {
           "mode" : "tile",
-          "width" : 1
+          "width" : 1,
+          "height" : 1
         },
         "cap-insets" : {
-          "right" : 44,
-          "left" : 44
+          "bottom" : 24,
+          "top" : 23,
+          "right" : 24,
+          "left" : 24
         }
       }
     }

@@ -112,7 +112,7 @@ class TransactionsManager {
     
     public func actionGetTicketPrice(ticket: TicketInfo, completion: @escaping (GetPriceResponse?, Error?)->Void) {
         
-        let request = Api.ticketPrice(host: self.host, clientId: self.clientId, transactionId: ticket.transactionId, transportId: ticket.transportId, successHandler: { (response) in
+        let request = Api.ticketPrice(host: self.host, clientId: self.clientId, transportId: Int32(ticket.transportId), successHandler: { (response) in
             
             completion(response.protobufObject, nil)
         }) { (error) in

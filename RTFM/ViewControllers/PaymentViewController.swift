@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EFQRCode
 
 class PaymentViewController: UIViewController {
     @IBOutlet var qrImageView: UIImageView!
@@ -18,6 +19,11 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "Электронный чек"
+        
+        let code = String(TransactionsManager.shared.clientId)
+        QRCodeManager.generateQRCode(string: code) { (image) in
+            self.qrImageView.image = image
+        }
     }
 
     /*

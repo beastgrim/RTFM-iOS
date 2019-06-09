@@ -13,6 +13,11 @@ struct TicketInfo {
     var transactionId: Int64
     var transportId: Int64
     var price: String?
+    var paid: Bool = false
+}
+
+class QRPresentorPriceView: UIView {
+    @IBOutlet var titleLabel: UILabel!
 }
 
 class QRPresentorViewController: UIViewController {
@@ -22,6 +27,7 @@ class QRPresentorViewController: UIViewController {
         return UIStoryboard.viewController()
     }
     
+    @IBOutlet var priceView: QRPresentorPriceView!
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var cancelButton: UIButton!
     @IBOutlet var payButton: UIButton!
@@ -29,11 +35,8 @@ class QRPresentorViewController: UIViewController {
     public var code: String? {
         didSet {
             if let code = self.code {
-                Queue.parse.async {
-                    let qrCodeImage = QRCodeManager.generateQRCode(string: code)
-                    Queue.main.async {
-                        self.imageView.image = qrCodeImage
-                    }
+                QRCodeManager.generateQRCode(string: code) { (image) in
+                    self.imageView.image = image
                 }
             }
         }
@@ -41,30 +44,44 @@ class QRPresentorViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.priceView.isHidden = true
+        self.payButton.isEnabled = false
+        
+        if let code = self.code {
+            self.ticket = self.parseQRCode(code)
+            self.getPrice()
+        }
     }
+    
+    // MARK: - Actions
     
     @IBAction @objc public func actionClose(_ sender: Any?) {
         self.dismiss(animated: true, completion: nil)
     }
     
     @IBAction @objc public func actionPayOnline(_ sender: Any?) {
-        guard let code = self.code else { return }
-        
-        guard let ticket = self.parseQRCode(code) else { return }
-        self.ticket = ticket
+        guard self.ticket != nil else { return }
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        self.getPrice()
-  
+        self.payOnline()
     }
     
     private func actionPayOnlineFinish(error: Error?) {
         MBProgressHUD.hide(for: self.view, animated: true)
-
+        if let _ = error {
+            // TODO: Show error
+        } else {
+            self.ticket?.paid = true
+            self.payButton.isHidden = true
+        }
     }
     
     private func actionShowPrice() {
-        
+        guard let price = self.ticket?.price else { return }
+
+        self.priceView.isHidden = false
+        self.priceView.titleLabel.text = price
+        self.payButton.isEnabled = true
     }
     
     // MARK: - Private
@@ -72,7 +89,7 @@ class QRPresentorViewController: UIViewController {
     
     private func parseQRCode(_ code: String) -> TicketInfo? {
         // TODO: parse QR code
-        return TicketInfo(transactionId: 1, transportId: 7, price: nil)
+        return TicketInfo(transactionId: Int64(arc4random()), transportId: 7, price: nil, paid: false)
     }
     
     private func payOnline() {

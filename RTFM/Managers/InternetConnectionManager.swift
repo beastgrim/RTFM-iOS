@@ -37,11 +37,14 @@ class InternetConnectionManager: NSObject {
         super.init()
 
         self.reach = Reachability.forInternetConnection()
+        self.start()
     }
     
     public func start() {
-        self.reach?.startNotifier()
-        self.reach?.reachabilityChanged = { (networkStatus) in
+        guard let reach = self.reach else { return }
+        
+        reach.startNotifier()
+        reach.reachabilityChanged = { (networkStatus) in
             let isReachable = networkStatus != NotReachable
             DDLogInfo("[InternetConnection] \((isReachable ? "reachable" : "unreachable"))")
             NotificationCenter.default.post(name: .internetReachabilityChanged, object: self)
