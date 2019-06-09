@@ -12,6 +12,7 @@ import MBProgressHUD
 struct TicketInfo {
     var transactionId: Int64
     var transportId: Int64
+    var price: String?
 }
 
 class QRPresentorViewController: UIViewController {
@@ -50,22 +51,48 @@ class QRPresentorViewController: UIViewController {
         guard let code = self.code else { return }
         
         guard let ticket = self.parseQRCode(code) else { return }
+        self.ticket = ticket
         
         MBProgressHUD.showAdded(to: self.view, animated: true)
-        self.manager.actionBuyTicket(transactionId: ticket.transactionId, transportId: ticket.transportId) { (error) in
-            
-            if let error = error {
-                // TODO: show error
-            }
-            MBProgressHUD.hide(for: self.view, animated: true)
-        }
+        self.getPrice()
+  
+    }
+    
+    private func actionPayOnlineFinish(error: Error?) {
+        MBProgressHUD.hide(for: self.view, animated: true)
+
+    }
+    
+    private func actionShowPrice() {
+        
     }
     
     // MARK: - Private
+    private var ticket: TicketInfo?
     
     private func parseQRCode(_ code: String) -> TicketInfo? {
         // TODO: parse QR code
-        return TicketInfo(transactionId: 1, transportId: 7)
+        return TicketInfo(transactionId: 1, transportId: 7, price: nil)
+    }
+    
+    private func payOnline() {
+        guard let ticket = self.ticket else { return }
+
+        self.manager.actionBuyTicket(transactionId: ticket.transactionId, transportId: ticket.transportId) { (error) in
+            
+            self.actionPayOnlineFinish(error: error)
+        }
     }
 
+    private func getPrice() {
+        guard let ticket = self.ticket else { return }
+        self.manager.actionGetTicketPrice(ticket: ticket) { (price, error) in
+            if let price = price {
+                self.ticket?.price = price.price
+                self.actionShowPrice()
+            } else {
+                self.actionPayOnlineFinish(error: error)
+            }
+        }
+    }
 }

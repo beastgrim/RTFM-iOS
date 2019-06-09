@@ -425,7 +425,7 @@
                                 <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <state key="normal" title="Закрыть">
+                                <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
                                     <color key="titleColor" white="0.37336793664383561" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -440,7 +440,7 @@
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="L4y-Rb-O6P" firstAttribute="centerX" secondItem="th7-qA-R85" secondAttribute="centerX" id="caw-Cr-CMZ"/>
                             <constraint firstItem="xEH-zs-5jt" firstAttribute="centerX" secondItem="th7-qA-R85" secondAttribute="centerX" id="d9S-fO-utZ"/>
@@ -468,16 +468,15 @@
                                     <constraint firstAttribute="width" secondItem="IwG-LP-rix" secondAttribute="height" multiplier="1:1" id="59B-gg-V2H"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-Kk-UjH">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRk-Kk-UjH">
                                 <rect key="frame" x="107" y="774" width="200" height="88"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="67S-g1-y0f"/>
                                     <constraint firstAttribute="height" constant="88" id="fOZ-0u-SkQ"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Sarabun-SemiBold" family="Sarabun" pointSize="16"/>
                                 <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
                                 <inset key="titleEdgeInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="8"/>
-                                <state key="normal" title="Закрыть">
+                                <state key="normal" title="Закрыть" backgroundImage="cancel-bg">
                                     <color key="titleColor" white="0.37336793660000001" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -557,6 +556,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="cancel-bg" width="89" height="88"/>
         <image name="pay-bg" width="89" height="88"/>
         <image name="pay-field-bg" width="84" height="57"/>
         <image name="qr-space" width="146" height="146"/>

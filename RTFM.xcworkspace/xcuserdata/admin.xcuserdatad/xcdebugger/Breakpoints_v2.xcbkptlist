@@ -16,32 +16,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "RTFM/Managers/TransactionsManager.swift"
-            timestampString = "581769841.473138"
+            timestampString = "581772363.8562911"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "actionUpdateRecentTransactions()"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "actionGetTicketPrice(ticket:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "RTFM/ViewControllers/QRPresentorViewController.swift"
-            timestampString = "581769841.473628"
+            filePath = "RTFM/Managers/TransactionsManager.swift"
+            timestampString = "581772364.428483"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
-            landmarkName = "actionPayOnline(_:)"
+            startingLineNumber = "119"
+            endingLineNumber = "119"
+            landmarkName = "actionGetTicketPrice(ticket:completion:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

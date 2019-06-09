@@ -218,6 +218,8 @@ struct GetPriceResponse {
 
   var price: String = String()
 
+  var sessionID: Int32 = 0
+
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
   init() {}
@@ -240,9 +242,51 @@ struct RefilRequest {
   // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
   // methods supported on all messages.
 
-  var clientID: Int32 = 0
+  var clientID: Int64 = 0
 
   var value: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TrafficStatPoint {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var startTime: UInt32 = 0
+
+  var endTime: UInt32 = 0
+
+  var count: Int32 = 0
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TrafficStatsResponce {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var traceID: Int32 = 0
+
+  var stats: [TrafficStatPoint] = []
+
+  var unknownFields = SwiftProtobuf.UnknownStorage()
+
+  init() {}
+}
+
+struct TrafficStatsRequest {
+  // SwiftProtobuf.Message conformance is added in an extension below. See the
+  // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+  // methods supported on all messages.
+
+  var traceID: Int32 = 0
 
   var unknownFields = SwiftProtobuf.UnknownStorage()
 
@@ -641,12 +685,14 @@ extension GetPriceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
   static let protoMessageName: String = "GetPriceResponse"
   static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
     1: .same(proto: "Price"),
+    2: .standard(proto: "session_id"),
   ]
 
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
       case 1: try decoder.decodeSingularStringField(value: &self.price)
+      case 2: try decoder.decodeSingularInt32Field(value: &self.sessionID)
       default: break
       }
     }
@@ -656,11 +702,15 @@ extension GetPriceResponse: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     if !self.price.isEmpty {
       try visitor.visitSingularStringField(value: self.price, fieldNumber: 1)
     }
+    if self.sessionID != 0 {
+      try visitor.visitSingularInt32Field(value: self.sessionID, fieldNumber: 2)
+    }
     try unknownFields.traverse(visitor: &visitor)
   }
 
   static func ==(lhs: GetPriceResponse, rhs: GetPriceResponse) -> Bool {
     if lhs.price != rhs.price {return false}
+    if lhs.sessionID != rhs.sessionID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
@@ -705,7 +755,7 @@ extension RefilRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
     while let fieldNumber = try decoder.nextFieldNumber() {
       switch fieldNumber {
-      case 1: try decoder.decodeSingularInt32Field(value: &self.clientID)
+      case 1: try decoder.decodeSingularInt64Field(value: &self.clientID)
       case 2: try decoder.decodeSingularInt32Field(value: &self.value)
       default: break
       }
@@ -714,7 +764,7 @@ extension RefilRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
 
   func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
     if self.clientID != 0 {
-      try visitor.visitSingularInt32Field(value: self.clientID, fieldNumber: 1)
+      try visitor.visitSingularInt64Field(value: self.clientID, fieldNumber: 1)
     }
     if self.value != 0 {
       try visitor.visitSingularInt32Field(value: self.value, fieldNumber: 2)
@@ -725,6 +775,111 @@ extension RefilRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementat
   static func ==(lhs: RefilRequest, rhs: RefilRequest) -> Bool {
     if lhs.clientID != rhs.clientID {return false}
     if lhs.value != rhs.value {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TrafficStatPoint: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TrafficStatPoint"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "start_time"),
+    2: .standard(proto: "end_time"),
+    3: .same(proto: "count"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularUInt32Field(value: &self.startTime)
+      case 2: try decoder.decodeSingularUInt32Field(value: &self.endTime)
+      case 3: try decoder.decodeSingularInt32Field(value: &self.count)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.startTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.startTime, fieldNumber: 1)
+    }
+    if self.endTime != 0 {
+      try visitor.visitSingularUInt32Field(value: self.endTime, fieldNumber: 2)
+    }
+    if self.count != 0 {
+      try visitor.visitSingularInt32Field(value: self.count, fieldNumber: 3)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TrafficStatPoint, rhs: TrafficStatPoint) -> Bool {
+    if lhs.startTime != rhs.startTime {return false}
+    if lhs.endTime != rhs.endTime {return false}
+    if lhs.count != rhs.count {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TrafficStatsResponce: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TrafficStatsResponce"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "trace_id"),
+    2: .same(proto: "Stats"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.traceID)
+      case 2: try decoder.decodeRepeatedMessageField(value: &self.stats)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.traceID != 0 {
+      try visitor.visitSingularInt32Field(value: self.traceID, fieldNumber: 1)
+    }
+    if !self.stats.isEmpty {
+      try visitor.visitRepeatedMessageField(value: self.stats, fieldNumber: 2)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TrafficStatsResponce, rhs: TrafficStatsResponce) -> Bool {
+    if lhs.traceID != rhs.traceID {return false}
+    if lhs.stats != rhs.stats {return false}
+    if lhs.unknownFields != rhs.unknownFields {return false}
+    return true
+  }
+}
+
+extension TrafficStatsRequest: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+  static let protoMessageName: String = "TrafficStatsRequest"
+  static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+    1: .standard(proto: "trace_id"),
+  ]
+
+  mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+    while let fieldNumber = try decoder.nextFieldNumber() {
+      switch fieldNumber {
+      case 1: try decoder.decodeSingularInt32Field(value: &self.traceID)
+      default: break
+      }
+    }
+  }
+
+  func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+    if self.traceID != 0 {
+      try visitor.visitSingularInt32Field(value: self.traceID, fieldNumber: 1)
+    }
+    try unknownFields.traverse(visitor: &visitor)
+  }
+
+  static func ==(lhs: TrafficStatsRequest, rhs: TrafficStatsRequest) -> Bool {
+    if lhs.traceID != rhs.traceID {return false}
     if lhs.unknownFields != rhs.unknownFields {return false}
     return true
   }
