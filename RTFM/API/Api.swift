@@ -49,4 +49,23 @@ class Api {
         request.maxAttempts = 1
         return request
     }
+    
+    class func rechargeTransaction<T: ApiProtobufResponseModel<ApiSuccessEmptyResponse>>(host: String, clientId: Int64, amount: Int32, successHandler: @escaping ((T) -> Void), failureHandler: @escaping ((ApiRequestError) -> Void)) -> ApiRequest<T> {
+        
+        var payload = RefilRequest()
+        payload.clientID = Int32(clientId)
+        payload.value = amount
+        
+        let request = ApiRequest(protobufToHost: host, path: "api/refil",
+                                 uniqueType: "refil",
+                                 protobufRequest: payload, successHandler: successHandler,
+                                 failureHandler: { (error) in
+                                    
+                                    Api.record(error: error)
+                                    failureHandler(error)
+        })
+        request.attemptWaitSeconds = 0
+        request.maxAttempts = 1
+        return request
+    }
 }

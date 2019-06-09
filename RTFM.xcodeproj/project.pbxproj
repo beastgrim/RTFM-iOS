@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0ED823E9A24C716618B725E6 /* Pods_RTFM.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A2B668E67F363CC8169314F3 /* Pods_RTFM.framework */; };
 		84287B7922ACEF4C00A3A234 /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84287B7822ACEF4C00A3A234 /* UIViewControllerExtensions.swift */; };
+		84287B7B22ACF9E700A3A234 /* RechargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84287B7A22ACF9E700A3A234 /* RechargeViewController.swift */; };
 		846869DE22AB88FA00970EAB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DD22AB88FA00970EAB /* AppDelegate.swift */; };
 		846869E022AB88FA00970EAB /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846869DF22AB88FA00970EAB /* MainViewController.swift */; };
 		846869E322AB88FA00970EAB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846869E122AB88FA00970EAB /* Main.storyboard */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		84287B7822ACEF4C00A3A234 /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		84287B7A22ACF9E700A3A234 /* RechargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RechargeViewController.swift; sourceTree = "<group>"; };
 		846869DA22AB88FA00970EAB /* RTFM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RTFM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846869DD22AB88FA00970EAB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846869DF22AB88FA00970EAB /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 				84EF5F9E22ABDEB9001005AA /* TransactionsViewController.swift */,
 				84EF5FC222AC637F001005AA /* QRPresentorViewController.swift */,
 				84EF5FC422ACE73B001005AA /* PaymentViewController.swift */,
+				84287B7A22ACF9E700A3A234 /* RechargeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -427,6 +430,7 @@
 				846869E622AB88FA00970EAB /* RTFM.xcdatamodeld in Sources */,
 				84EF5F7F22AB950F001005AA /* LocalizationManager.swift in Sources */,
 				84EF5F9122ABAC88001005AA /* ApiRequestDecoding.swift in Sources */,
+				84287B7B22ACF9E700A3A234 /* RechargeViewController.swift in Sources */,
 				846869E022AB88FA00970EAB /* MainViewController.swift in Sources */,
 				84EF5FC122AC626B001005AA /* QRCodeManager.swift in Sources */,
 				84EF5F9922ABD179001005AA /* MainNavigationViewController.swift in Sources */,

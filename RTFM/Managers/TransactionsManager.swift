@@ -21,7 +21,7 @@ extension TransactionsManager {
 extension Notification.Name {
     static let transactionManagerDidChangeRecent = Notification.Name.init(rawValue: "TransactionManagerDidChangeRecent")
     static let transactionManagerDidUserInfo = Notification.Name.init(rawValue: "transactionManagerDidUserInfo")
-
+    static let transactionManagerDidRefill = Notification.Name.init(rawValue: "transactionManagerDidRefill")
 }
 
 class TransactionsManager {
@@ -83,4 +83,21 @@ class TransactionsManager {
         })
         self.userInfoRequest?.start()
     }
+    
+    private var refillRequest: ApiRequest<ApiProtobufResponseModel<ApiSuccessEmptyResponse>>?
+    public func actionRefill(amount: Int) {
+        guard self.refillRequest == nil else {
+            return
+        }
+        
+        self.refillRequest = Api.rechargeTransaction(host: self.host, clientId: self.clientId, amount: Int32(amount), successHandler: { (response) in
+            self.actionUpdateUserInfo()
+            self.refillRequest = nil
+            NotificationCenter.default.post(name: .transactionManagerDidRefill, object: self)
+        }, failureHandler: { (error) in
+            self.refillRequest = nil
+        })
+        self.refillRequest?.start()
+    }
+
 }

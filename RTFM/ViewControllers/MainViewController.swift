@@ -223,8 +223,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction @objc public func actionFillUpPurse(_ sender: Any?) {
-        let transactions = TransactionsViewController.newTransactions()
-        transactions.title = "История транзакций"
+        let transactions: RechargeViewController = UIStoryboard.viewController()
         self.navigationController?.pushViewController(transactions, animated: true)
     }
     
