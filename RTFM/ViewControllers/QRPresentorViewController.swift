@@ -73,6 +73,9 @@ class QRPresentorViewController: UIViewController {
         } else {
             self.ticket?.paid = true
             self.payButton.isHidden = true
+            
+            self.manager.actionUpdateUserInfo()
+            self.manager.actionUpdateRecentTransactions()
         }
     }
     
