@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import MBProgressHUD
+
+struct TicketInfo {
+    var transactionId: Int64
+    var transportId: Int64
+}
 
 class QRPresentorViewController: UIViewController {
     
+    let manager = TransactionsManager.shared
     class func newPresentor() -> QRPresentorViewController {
         return UIStoryboard.viewController()
     }
@@ -40,9 +47,25 @@ class QRPresentorViewController: UIViewController {
     }
     
     @IBAction @objc public func actionPayOnline(_ sender: Any?) {
-        // TODO: Pay online
+        guard let code = self.code else { return }
+        
+        guard let ticket = self.parseQRCode(code) else { return }
+        
+        MBProgressHUD.showAdded(to: self.view, animated: true)
+        self.manager.actionBuyTicket(transactionId: ticket.transactionId, transportId: ticket.transportId) { (error) in
+            
+            if let error = error {
+                // TODO: show error
+            }
+            MBProgressHUD.hide(for: self.view, animated: true)
+        }
     }
     
     // MARK: - Private
+    
+    private func parseQRCode(_ code: String) -> TicketInfo? {
+        // TODO: parse QR code
+        return TicketInfo(transactionId: 1, transportId: 2)
+    }
 
 }

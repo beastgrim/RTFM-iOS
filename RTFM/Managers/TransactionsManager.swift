@@ -100,4 +100,13 @@ class TransactionsManager {
         self.refillRequest?.start()
     }
 
+    public func actionBuyTicket(transactionId: Int64, transportId: Int64, completion: @escaping (Error?)->Void) {
+        
+        let request = Api.completeTransaction(host: self.host, clientId: self.clientId, transactionId: transactionId, transportId: transportId, successHandler: { (response) in
+            completion(nil)
+        }) { (error) in
+            completion(error)
+        }
+        request.start()
+    }
 }

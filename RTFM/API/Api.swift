@@ -68,4 +68,24 @@ class Api {
         request.maxAttempts = 1
         return request
     }
+    
+    class func completeTransaction<T: ApiProtobufResponseModel<ApiSuccessEmptyResponse>>(host: String, clientId: Int64, transactionId: Int64, transportId: Int64, successHandler: @escaping ((T) -> Void), failureHandler: @escaping ((ApiRequestError) -> Void)) -> ApiRequest<T> {
+        
+        var payload = Payment()
+        payload.clientID = clientId
+        payload.transactionID = transactionId
+        payload.transportID = transportId
+        
+        let request = ApiRequest(protobufToHost: host, path: "api/transact",
+                                 uniqueType: "transact",
+                                 protobufRequest: payload, successHandler: successHandler,
+                                 failureHandler: { (error) in
+                                    
+                                    Api.record(error: error)
+                                    failureHandler(error)
+        })
+        request.attemptWaitSeconds = 0
+        request.maxAttempts = 1
+        return request
+    }
 }
